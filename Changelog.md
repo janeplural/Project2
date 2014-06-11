@@ -23,3 +23,8 @@ Changelog
 * eases seperation anxiety, eases social anxiety at school. Eases generalized anxiety about not knowing what is going to happen each day
 * allows child to anticipate upcoming events, birthdays, vacations, etc. 
 * weather reports: enables child to dress appropriately for weather. 
+
+####3. [NYC Big Apps - Citibike](http://citibikefinder.splashthat.com/)
+* http://citibikefinder.splashthat.com/
+
+####4. [NYC Big Apps - Internet of Things](http://streetiq.splashthat.com/)
