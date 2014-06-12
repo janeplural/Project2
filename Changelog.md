@@ -4,7 +4,11 @@ Changelog
 
 # 14-06-11:
 
-## Ideas for a project (Brainstorming):
+* Brainstormed some ideas
+* Chose idea #2
+* Whiteboarded architecture, UX, and some wireframes
+* 
+### Ideas for a project (Brainstorming):
 
 
 ####1. Parent/Kids app - My Jobs 
@@ -28,3 +32,11 @@ Changelog
 * http://citibikefinder.splashthat.com/
 
 ####4. [NYC Big Apps - Internet of Things](http://streetiq.splashthat.com/)
+
+####5. Webscrape ISP websites to show violations of municipal Telcom Act Title 6 violations
+
+### Choice and initial planning
+![whiteboard](/admin/images/2014-16-11_white_board-300px_tall.jpg)
+
+### Models and Associations (ERD) Diagram
+![Models and Associations (ERD) Diagram](/admin/images/14-06-11_models_and_associations.png)
