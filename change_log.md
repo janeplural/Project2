@@ -1,5 +1,5 @@
 
-Changelog
+Change Log
 ========
 
 # 14-06-11:
