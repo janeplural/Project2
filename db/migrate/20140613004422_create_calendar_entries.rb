@@ -8,6 +8,11 @@ class CreateCalendarEntries < ActiveRecord::Migration
       t.integer :family_id
       t.text :desription
 
+      # This may eventually become the guts of a polymoric interface
+      t.string :event_type      # either :childcare, :appointment, or :happening
+      t.integer :event_id
+
+
       t.timestamps
     end
   end

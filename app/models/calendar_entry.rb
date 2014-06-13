@@ -1,13 +1,13 @@
 class CalendarEntry < ActiveRecord::Base
 
-	## TRAVERSING THE DATA
+	## TRAVERSING THE DATA FOR ASSOCIATIONS
 
 		has_many :participations
 		has_many :persons, through: :participations
 
 
 
-	## GETTER FILTERS
+	## TIME FILTERS
 		scope :yesterday, lambda { |days| where('start_datetime < ?' , -1) }	#UNTESTED
 		scope :today, lambda { |days| where('start_datetime < ?' , 0) }			#UNTESTED
 		scope :tomorrow, lambda { |days| where('start_datetime < ?' , 1) }		#UNTESTED
@@ -21,7 +21,7 @@ class CalendarEntry < ActiveRecord::Base
 
 
 
-	## PERSONS GETTER
+	## ASSOCIATED PERSONS GETTERS
 
 		def all_persons
 			self.persons

@@ -41,4 +41,4 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'pry-rails'
 gem 'awesome_print'
 
-gem "paperclip", "~> 4.1"
+# gem "paperclip", "~> 4.1"

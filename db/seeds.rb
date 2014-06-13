@@ -7,7 +7,7 @@
 
 def refresh_family()
 	Family.delete_all
-	$seed_family = Family.create({
+	$seed_family = Family.create!({
 		nickname: "$seed_family"
 		})
 end
@@ -22,7 +22,7 @@ def refresh_persons()
 
 	## USER
 
-		dad = $seed_family.persons.create({
+		dad = $seed_family.persons.create!({
 			nickname: "Dad",
 			first_name: "John",
 			last_name: "Randall",
@@ -33,7 +33,7 @@ def refresh_persons()
 			})
 
 
-		mom = $seed_family.persons.create({
+		mom = $seed_family.persons.create!({
 			nickname: "Mom",
 			first_name: "Karina",
 			last_name: "Linch",
@@ -46,7 +46,7 @@ def refresh_persons()
 
 	## CAREGIVER
 
-		grandma = $seed_family.persons.create({
+		grandma = $seed_family.persons.create!({
 			nickname: "Grandma Janet",
 			first_name: "Janet",
 			last_name: "Randall",
@@ -57,7 +57,7 @@ def refresh_persons()
 			})
 
 
-		natt = $seed_family.persons.create({
+		natt = $seed_family.persons.create!({
 			nickname: "Natt",
 			first_name: "Piyapath",
 			last_name: "Longhamphia",
@@ -70,7 +70,7 @@ def refresh_persons()
 
 	## CHILD
 
-		sam = $seed_family.persons.create({
+		sam = $seed_family.persons.create!({
 			nickname: "SammyDoo",
 			first_name: "Sam",
 			last_name: "Randall",
@@ -80,7 +80,7 @@ def refresh_persons()
 		    description: "the drooler"
 			})
 
-		$max = $seed_family.persons.create({
+		$max = $seed_family.persons.create!({
 			nickname: "MisterMax",
 			first_name: "Max",
 			last_name: "Randall",
@@ -101,75 +101,88 @@ def refresh_calendar_entries()
 
 	## CHILDCARE
 
-		$max.calendar_entries.create({
+		$max.calendar_entries.create!({
 			start_datetime: Time.parse('3am'),
 			end_datetime: Time.parse('7:30am'),
 			name: 'dad home',
 			image_url: nil,
-			family_id: nil,
+			family_id: $max.family_id,
 			desription: 'dad home',
+
+			event_type: :childcare
 			
 			})
     	
-		$max.calendar_entries.create({
+		$max.calendar_entries.create!({
 			start_datetime: Time.parse('8am'),
 			end_datetime: Time.parse('4pm'),
 			name: 'grandma watches me',
 			image_url: nil,
-			family_id: nil,
+			family_id: $max.family_id,
 			desription: 'grandma watches me',
 			
+			event_type: :childcare
 			})
 
 
 	## APPOINTMENTS
 
-		$max.calendar_entries.create({
+		$max.calendar_entries.create!({
 			start_datetime: Time.parse('8:45am'),
 	    	end_datetime: Time.parse('12:30pm'),
 	    	name: 'preschool',
 	    	image_url: nil,
-	    	family_id: nil,
+	    	family_id: $max.family_id,
 	    	desription: 'I get to see my friends at school',
+
+	    	event_type: :appointment
 	    	})
 
-		$max.calendar_entries.create({
+		$max.calendar_entries.create!({
 			start_datetime: Time.parse('3pm'),
 	    	end_datetime: Time.parse('3:45pm'),
 	    	name: 'swim class',
 	    	image_url: nil,
-	    	family_id: nil,
+	    	family_id: $max.family_id,
 	    	desription: 'I learn to swim',
+
+	    	event_type: :appointment
 	    	})
 
 
 	## HAPPENINGS
 
-		$max.calendar_entries.create({
+		$max.calendar_entries.create!({
 			start_datetime: Time.parse('8am'),
 	    	end_datetime: Time.parse('8:30am'),
 	    	name: 'breakfast',
 	    	image_url: nil,
-	    	family_id: nil,
+	    	family_id: $max.family_id,
 	    	desription: 'yum',
+
+	    	event_type: :happening
 	    	})
 
-		$max.calendar_entries.create({
+		$max.calendar_entries.create!({
 			start_datetime: Time.parse('11:30am'),
 	    	end_datetime: Time.parse('12:pm'),
 	    	name: 'lunch at school',
 	    	image_url: nil,
-	    	family_id: nil,
+	    	family_id: $max.family_id,
 	    	desription: 'nom nom nom',
+
+	    	event_type: :happening
 	    	})
 
-		$max.calendar_entries.create({
+		$max.calendar_entries.create!({
 			start_datetime: Time.parse('5pm'),
 	    	end_datetime: Time.parse('5:30pm'),
 	    	name: 'dinner at home',
 	    	image_url: nil,
-	    	family_id: nil,
+	    	family_id: $max.family_id,
 	    	desription: 'my favorite',
+
+	    	event_type: :happening
 	    	})
 
 
