@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612231713) do
+ActiveRecord::Schema.define(version: 20140613005040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "calendar_entries", force: true do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.string   "name"
+    t.string   "image_url"
+    t.integer  "family_id"
+    t.text     "desription"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "families", force: true do |t|
     t.string   "nickname"
@@ -22,7 +33,14 @@ ActiveRecord::Schema.define(version: 20140612231713) do
     t.datetime "updated_at"
   end
 
-  create_table "people", force: true do |t|
+  create_table "participations", force: true do |t|
+    t.integer  "person_id"
+    t.integer  "calendar_entry_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "persons", force: true do |t|
     t.string   "family_id"
     t.string   "nickname"
     t.string   "first_name"

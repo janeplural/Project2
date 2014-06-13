@@ -5,6 +5,9 @@ class Person < ActiveRecord::Base
 
 	belongs_to :family
 
+	has_many :participations
+	has_many :calendar_entries, through: :participations
+
 
 	# belongs_to :member, :polymorphic => true
 

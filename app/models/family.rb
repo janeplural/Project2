@@ -1,6 +1,6 @@
 class Family < ActiveRecord::Base
 
-	has_many :people
+	has_many :persons
 	# has_many :children
 	# has_many :caregivers
 	# has_many :users
