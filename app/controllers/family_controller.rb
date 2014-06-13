@@ -1,4 +1,7 @@
+# require "colorize"
+
 class FamilyController < ApplicationController
+
 	
 	def index
 		#FIX
@@ -10,11 +13,9 @@ class FamilyController < ApplicationController
 	end
 
 	def show
-		# @family = Family.find(current_user.family_id)
-		# payload = {}
+		@slice_point = 'this is to help the payload builder alternate method. ignore it.'
 
-		@slice_point = 'CUT ME HERE'
-
+		# @family = Family.find(current_user.family_id)   # NOT READY FOR PRIME TIME YET
 		@family = Family.last
 
 		@persons = @family.persons
@@ -23,34 +24,8 @@ class FamilyController < ApplicationController
 			@luddites = @family.luddites
 			@users = @family.users
 
-		# @calendar_entries = @family.calendar_entries
-			# @appointments = @family.appointments
-			# @childcares = @family.childcares
-			# @happenings = @family.happenings
-
-		# build_payload
-		#   @persons = @family.persons
-		#   @children = @family.children
-		#   @caregivers = @family.caregivers
-		#     @luddites = @family.luddites
-		#     @users = @family.users
-
-		#   @calendar_entries = @family.calendar_entries
-		#     @appointments = @family.appointments
-		#     @childcares = @family.childcares
-		#     @happenings = @family.happenings
-
-		@payload = build_payload()
-		# puts ""
-		# puts ""
-		# puts ""
-		# puts ""
-		# pp @payload
-		# pp JSON.parse(@payload)
-		
-
-		render json: 'see terminal'
-
+		@payload = build_payload(); #20.times {puts ""}; ap @payload
+		render json: @payload
 	end
 
 
@@ -58,45 +33,42 @@ class FamilyController < ApplicationController
 	def edit
 	end
 
-
-
 	def build_payload
 		payload_arr = []
 
+		instance_variables_to_ignore = [
+			#alternatly - we could slice this array at the slice point
+				:@_action_has_layout,
+				:@_routes,
+				:@_headers,
+				:@_status,
+				:@_request,
+				:@_response,
+				:@_env,
+				:@_prefixes,
+				:@_lookup_context,
+				:@_action_name,
+				:@_response_body,
+				:@marked_for_same_origin_verification,
+				:@_config,
+				:@slice_point]
+
 		self.instance_variables.each do |instance_variable|
-			single_item_hash = {instance_variable: self.instance_variable_get(instance_variable)}
-			payload_arr << single_item_hash
+			if !instance_variables_to_ignore.include?(instance_variable)
+				# ap instance_variable
+				value = self.instance_variable_get(instance_variable)
+				single_item_hash = {instance_variable => value}
+				# ap single_item_hash
+				payload_arr << single_item_hash
+			end
 		end
-
-		slice_point_index = payload_arr.find_index(@slice_point)
-		pp slice_point_index
-		
-		payload_arr.slice!(0, slice_point_index)
-
-		pp payload_arr
-
-
-
-
-
-
-		# payload = {}
-
-		# self.instance_variables.each do |instance_variable|
-		# 	# puts instance_variable
-		# 	# puts instance_variable.to_s
-		# 	payload[instance_variable]= self.instance_variable_get(instance_variable)
-		# 	# pp self.instance_variable_get(instance_variable)
-
-		# end
-
-		return payload
 	
+		return payload_arr
+
 	end
-# 
-	# def instance_variables_hash
-			# @payload = Hash[instance_variables.map { |name| [name, instance_variable_get(name)] } ]
-	# end
+
+
+
 
 
 end
