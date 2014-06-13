@@ -22,7 +22,7 @@ randalls.save
 
 
 
-# # persons
+## PERSONS
 
 Person.delete_all
 # 		# Child.delete_all
@@ -111,6 +111,11 @@ sam = randalls.persons.create({
 	})
 
 
+
+
+
+
+## CALENDAR ENTRIES
 test_cal_event = sam.calendar_entries.create({
 	name: 'shave'
 	})
