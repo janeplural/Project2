@@ -1,6 +1,8 @@
 class Family < ActiveRecord::Base
 
 	has_many :persons
+
+	has_many :calendar_entries, :as => :can_own_calendar_entries
 	# has_many :children
 	# has_many :caregivers
 	# has_many :users
