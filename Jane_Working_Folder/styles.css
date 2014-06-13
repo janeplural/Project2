@@ -1,0 +1,34 @@
+.header-nav{
+	text-align: center;
+}
+
+
+.activity-event{
+	/*border: solid black 1px;*/
+	background-color: lightGrey;
+}
+
+.person-event{
+	/*border: solid black 1px;*/
+	background-color: lightGrey;
+}
+
+.person-event-pic{
+	border: solid black 1px;
+	border-radius: 100%;
+}
+
+.timeline{
+	border: solid black 1px;
+	background-color: lightGrey;
+}
+
+.navigation{
+	/*border: solid black 1px;*/
+	background-color: yellow;	
+}
+
+#date-time{
+	/*border: solid black 1px;*/
+	background-color: yellow;
+}
