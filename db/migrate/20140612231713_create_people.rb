@@ -4,6 +4,9 @@ class CreatePeople < ActiveRecord::Migration
       
       t.string :family_id
 
+      # t.integer :member_id
+      # t.string :member_type
+
       t.string :nickname
       t.string :first_name
       t.string :last_name

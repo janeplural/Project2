@@ -1,16 +1,17 @@
 class Family < ActiveRecord::Base
 
-	has_many :children
-	has_many :caregivers
-	has_many :users
+	has_many :people
+	# has_many :children
+	# has_many :caregivers
+	# has_many :users
 	
 	# FIX THESE AREN'T WORKING - UNABLE TO CALL ALL FAMILY MEMBERS
 	# has_many :people, :as => :member
 	# has_many :members, :as => :member, :class_name => "Person"	#synonym of people
 
-	# 	has_many :children, :as => :member, :class_name => "Child"
-	# 	has_many :caregivers, :as => :member, :class_name => "Caregiver"
-	# 	has_many :users, :as => :member, :class_name => "User"
+		# has_many :children, :as => :member, :class_name => "Child"
+		# has_many :caregivers, :as => :member, :class_name => "Caregiver"
+		# has_many :users, :as => :member, :class_name => "User"
 	
 	# has_many :event_participants, through: :people
 	# has_many :event_participants, through: :members

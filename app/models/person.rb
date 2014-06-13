@@ -3,11 +3,7 @@ class Person < ActiveRecord::Base
 
 	#FAMILY CONNECTION
 
-	belongs_to :Family
-
-
-
-
+	belongs_to :family
 
 
 	# belongs_to :member, :polymorphic => true
