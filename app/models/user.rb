@@ -1,2 +1,2 @@
-class User < Person
+class User < Caregiver
 end

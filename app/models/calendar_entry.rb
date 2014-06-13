@@ -6,42 +6,10 @@ class CalendarEntry < ActiveRecord::Base
 			has_many :persons, through: :participations
 				has_many :children, through: :participations
 				has_many :caregivers, through: :participations
-				has_many :users, through: :participations
+					has_many :users, through: :participations
+					has_many :luddites, through: :participations
 
-	## ASSOCIATED PERSONS 
-		
-		### Getters
-
-			### dynamic call
-				# def participants_of_type(role_type)
-				# 		if role_type == 'all' || role_type == :all || role_type == nil
-				# 			return allpersons()
-				# 		elsif
-				# 		end
-				# end
-
-			### simple calls
-				# def all_persons
-				# 	persons
-				# end
-
-				# def caregivers		#FIX
-				# 	#right now this returns everthing, eventually it should filter.
-				# 	persons.where(type: 'Caregiver')
-				# end
-
-				# def children		#FIX
-				# 	#right now this returns everthing, eventually it should filter.
-				# 	persons.where(type: 'Child')
-				# end
-
-				# def users
-				# 	persons.where(type: 'User')
-				# end
-
-
-
-
+	
 	## TIME STUFF
 
 		def length(metric = 'minutes')

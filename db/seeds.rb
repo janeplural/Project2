@@ -60,7 +60,7 @@ def refresh_persons()
 		    notes_on_availability: "Avail Wed, Monday mornings, Thrusdays",
 		    description: "sweet lady.",
 
-		    type: "Caregiver"
+		    type: "Luddite"
 
 			})
 
@@ -74,7 +74,7 @@ def refresh_persons()
 		    notes_on_availability: "target of 28 hours per week",
 		    description: "nanny",
 
-		    type: "Caregiver"
+		    type: "Luddite"
 		})
 
 
@@ -207,7 +207,7 @@ def refresh_calendar_entries()
 		    	type: 'Happening'
 		    	})
 
-			
+
 	## VIA CAREGIVER
 		$dad.calendar_entries.create({
 		start_datetime: Time.parse('2am'),
