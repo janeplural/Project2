@@ -1,5 +1,12 @@
 class Person < ActiveRecord::Base
 	
+	## ATTRIBUTES
+
+		### HEADSHOT
+			has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+			validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
+
 
 	## TRAVERSING THE DATA
 
@@ -24,6 +31,7 @@ class Person < ActiveRecord::Base
 			# has_many :happenings, :as => :participant, :class_name => "Happening"
 
 
+
 	## CALENDAR ENTRIES
 
 		# THIS FUNCTIONALITY SHOULD BE MOVED TO CHILD WHEN WE HAVE A CHILD
@@ -46,6 +54,19 @@ class Person < ActiveRecord::Base
 			#right now this returns everthing, eventually it should filter.
 			self.calendar_entries
 		end
+
+
+
+
+
+	## HELPERS
+
+		## this might work better as a 'before save' hook
+		def self.convert_facebook_name_to_url(facebook_username_input)
+			facebook_headshot_url = "http://graph.facebook.com/#{facebook_username_input}/picture"
+			return facebook_headshot_url
+		end
+
 
 
 end
