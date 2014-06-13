@@ -19,11 +19,17 @@ class CreatePersons < ActiveRecord::Migration
       t.string :headshot_used
 
 
+      # This may eventually become the guts of a polymoric interface
+        t.boolean :is_child      
+        t.boolean :is_caregiver
+        t.boolean :is_user
+
+
       #stuff that belongs in the child class
 
 
       #stuff that belongs in the caregiver class
-      t.text :notes_on_availability
+        t.text :notes_on_availability
 
 
       #stuff that belongs in the user class

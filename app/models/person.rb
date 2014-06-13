@@ -34,10 +34,12 @@ class Person < ActiveRecord::Base
 
 	## CALENDAR ENTRIES
 
+		### Getters
+
 		### dynamic call
 		def calendar_entries_of_type(event_type)
 			if event_type == 'all' || event_type == :all || event_type == nil
-				return self.calendar_entries
+				return all_callendar_entries()
 			else
 				return self.calendar_entries.where(event_type: event_type.to_s.singularize.to_sym)
 			end
@@ -68,6 +70,9 @@ class Person < ActiveRecord::Base
 					# def happening
 					# 	self.happenings
 					# end
+		### Setters
+
+
 
 
 
