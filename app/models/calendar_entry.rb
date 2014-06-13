@@ -1,27 +1,15 @@
 class CalendarEntry < ActiveRecord::Base
 
-	## TRAVERSING THE DATA FOR ASSOCIATIONS
+	## TRAVERSING THE DATA
 
 		has_many :participations
 		has_many :persons, through: :participations
 
 
 
-	## TIME FILTERS
-		scope :yesterday, lambda { |days| where('start_datetime < ?' , -1) }	#UNTESTED
-		scope :today, lambda { |days| where('start_datetime < ?' , 0) }			#UNTESTED
-		scope :tomorrow, lambda { |days| where('start_datetime < ?' , 1) }		#UNTESTED
-			#Use scope like this: 
-				# @yesterdays_events = @child.calendarentries.yesterday
-				# @todays_events = @person.calendarentries.today
-				# @tomorrows_events = @family.calendarentries.tomorrow
 
 
-
-
-
-
-	## ASSOCIATED PERSONS GETTERS
+	## PERSONS STUFF
 
 		def all_persons
 			self.persons
@@ -40,15 +28,7 @@ class CalendarEntry < ActiveRecord::Base
 
 
 
-	## TIME GETTERS
-
-		def starttime
-			return start_datetime
-		end
-
-		def endtime
-			return start_endtime
-		end
+	## TIME STUFF
 
 		def length(metric = 'minutes')
 			if metric == 'seconds' || metric == 'sec' || metric == 's' || metric == :seconds || metric == :sec || metric == :s
@@ -62,7 +42,13 @@ class CalendarEntry < ActiveRecord::Base
 			end
 		end
 
+		def starttime
+			return start_datetime
+		end
 
+		def endtime
+			return start_endtime
+		end
 
 
 

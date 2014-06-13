@@ -32,20 +32,4 @@ class Family < ActiveRecord::Base
 	# 	return members_hash
 	# end
 
-	def create_child(input_hash)
-		build_hash[:name] 			= input_hash.fetch(:name, 'this child needs a name')
-		
-		# build_hash[:headshot_used] 	= input_hash.fetch(:headshot_used, :silhouette)
-		# if build_hash[:headshot_used] == 
-		# 	build_hash[:headshot_url] 	= 
-	
-		created_person = self.persons.create(build_hash)
-
-	end
-
-
-	def add_caregiver_to_db(input_hash)
-	end
-
-
 end
