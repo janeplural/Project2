@@ -63,9 +63,27 @@ x
 
 # 14-06-12, Thursday:
 ## Jane:
-x
+* Added wireframes:
+
+![Home View - Wireframe](/admin/images/2014-06-13_wireframe_homeview_FINAL1.png)
+
+
+![User View - Wireframe](/admin/images/2014-06-13_wireframe_userview_FINAL2.png)
+
+![User View - Wireframe](/admin/images/2014-06-13_wireframe_userview_1.png)
+
+![Kid View - Wireframe](/admin/images/2014-06-13_wireframe_kidview_FINAL3.png)
+
+![Kid View - Wireframe](/admin/images/2014-06-13_wireframe_kidview_2.png)
+
+![Kid View - Wireframe](/admin/images/2014-06-13_wireframe_kidview_1.png)
+
+
+
 ## John:
-* Refined ERD Diagrams.![Models and Associations (ERD) Diagram](/admin/images/14-06-12_models_and_associations.png)
+* Refined ERD Diagrams.
+
+![Models and Associations (ERD) Diagram](/admin/images/14-06-12_models_and_associations.png)
 
 
 
