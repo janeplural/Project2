@@ -7,23 +7,36 @@ class CalendarEntry < ActiveRecord::Base
 
 
 
+	## ASSOCIATED PERSONS 
+		
+		### Getters
 
+			### dynamic call
+				# def participants_of_type(role_type)
+				# 		if role_type == 'all' || role_type == :all || role_type == nil
+				# 			return allpersons()
+				# 		elsif
+				# 		end
+				# end
 
-	## PERSONS STUFF
+			### simple calls
+				def all_persons
+					self.persons
+				end
 
-		def all_persons
-			self.persons
-		end
+				def caregivers		#FIX
+					#right now this returns everthing, eventually it should filter.
+					self.persons.where(is_caregiver: true)
+				end
 
-		def caregivers		#FIX
-			#right now this returns everthing, eventually it should filter.
-			self.persons
-		end
+				def children		#FIX
+					#right now this returns everthing, eventually it should filter.
+					self.persons.where(is_child: :true)
+				end
 
-		def children		#FIX
-			#right now this returns everthing, eventually it should filter.
-			self.persons
-		end
+				def users
+					self.persons.where(is_user: :true)
+				end
 
 
 

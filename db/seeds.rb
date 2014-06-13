@@ -29,7 +29,10 @@ def refresh_persons()
 			uploaded_headshot_url: nil,
 		    facebook_username: 'johnrandall',
 		    notes_on_availability: "Never available. Always at GA WDI.",
-		    description: "Bearded."
+		    description: "Bearded.",
+
+		    is_user: true,
+		    is_caregiver: true
 			})
 
 
@@ -40,7 +43,11 @@ def refresh_persons()
 			uploaded_headshot_url: nil,
 		    facebook_username: 'mslinch',
 		    notes_on_availability: "Works from home Tuesd and Thurs (with support). Available Friday.",
-		    description: 'mama is the best.'
+		    description: 'mama is the best.',
+
+		    is_user: true,
+		    is_caregiver: true
+
 			})
 
 
@@ -53,7 +60,10 @@ def refresh_persons()
 			uploaded_headshot_url: nil,
 		    facebook_username: 'janetrandall',
 		    notes_on_availability: "Avail Wed, Monday mornings, Thrusdays",
-		    description: "sweet lady."
+		    description: "sweet lady.",
+
+		    is_caregiver: true
+
 			})
 
 
@@ -64,7 +74,9 @@ def refresh_persons()
 			uploaded_headshot_url: nil,
 		    facebook_username: 'Natt.Piyapath',
 		    notes_on_availability: "target of 28 hours per week",
-		    description: "nanny"
+		    description: "nanny",
+
+		    is_caregiver: true
 		})
 
 
@@ -77,7 +89,10 @@ def refresh_persons()
 			uploaded_headshot_url: nil,
 		    facebook_username: 'samrandall',
 		    notes_on_availability: "ready to party at 3AM",
-		    description: "the drooler"
+		    description: "the drooler",
+
+		    is_child: true
+
 			})
 
 		$max = $seed_family.persons.create({
@@ -87,7 +102,10 @@ def refresh_persons()
 			uploaded_headshot_url: nil,
 		    facebook_username: 'maxrandall',
 		    notes_on_availability: "always availble all the time",
-		    description: "gobbler of mac'n'cheese"
+		    description: "gobbler of mac'n'cheese",
+
+		    is_child: true
+		    
 			})
 
 end

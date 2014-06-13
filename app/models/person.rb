@@ -26,26 +26,45 @@ class Person < ActiveRecord::Base
 
 	## CALENDAR ENTRIES
 
-		# THIS FUNCTIONALITY SHOULD BE MOVED TO CHILD WHEN WE HAVE A CHILD
+		### Getters
 
-		def all_callendar_entries
-			self.calendar_entries
+		### dynamic call
+		def calendar_entries_of_type(event_type)
+			if event_type == 'all' || event_type == :all || event_type == nil
+				return all_callendar_entries()
+			else
+				return self.calendar_entries.where(event_type: event_type.to_s.singularize.to_sym)
+			end
 		end
 
-		def childcares					#FIX
-			#right now this returns everthing, eventually it should filter.
-			self.calendar_entries
-		end
+			### alternates
+			def all_callendar_entries
+				self.calendar_entries
+			end
 
-		def appointments				#FIX
-			#right now this returns everthing, eventually it should filter.
-			self.calendar_entries
-		end
+			def childcares
+				self.calendar_entries.where(event_type: :childcare)
+			end
+					# def childcare
+					# 	self.childcares
+					# end
 
-		def happenings					#FIX
-			#right now this returns everthing, eventually it should filter.
-			self.calendar_entries
-		end
+			def appointments
+				self.calendar_entries.where(event_type: :appointment)
+			end
+					# def appointment
+					# 	self.appointments
+					# end
+
+			def happenings
+				self.calendar_entries.where(event_type: :happening)
+			end
+					# def happening
+					# 	self.happenings
+					# end
+		
+		### Setters
+
 
 
 end

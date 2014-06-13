@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20140613005040) do
     t.string   "image_url"
     t.integer  "family_id"
     t.text     "desription"
+    t.string   "event_type"
+    t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,10 +48,13 @@ ActiveRecord::Schema.define(version: 20140613005040) do
     t.string   "first_name"
     t.string   "last_name"
     t.text     "description"
-    t.text     "notes_on_availability"
     t.string   "facebook_username"
     t.string   "uploaded_headshot_url"
     t.string   "headshot_used"
+    t.boolean  "is_child"
+    t.boolean  "is_caregiver"
+    t.boolean  "is_user"
+    t.text     "notes_on_availability"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
