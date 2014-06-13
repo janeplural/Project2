@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20140613005040) do
   enable_extension "plpgsql"
 
   create_table "calendar_entries", force: true do |t|
-    t.datetime "start"
-    t.datetime "end"
+    t.datetime "start_datetime"
+    t.datetime "end_datetime"
     t.string   "name"
     t.string   "image_url"
     t.integer  "family_id"
