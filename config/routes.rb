@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
 
-  # resources :family
+  # get 'family/new'
 
-  
+  # get 'family/show'
+
+  # get 'family/edit'
+
+  # resources :family
+  root to: 'family#index'
+
+  resources :family do
+    resources :children
+  end
 
 
 

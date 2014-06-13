@@ -22,7 +22,7 @@ def refresh_persons()
 
 	## USER
 
-		dad = $seed_family.persons.create({
+		$dad = $seed_family.persons.create({
 			nickname: "Dad",
 			first_name: "John",
 			last_name: "Randall",
@@ -31,8 +31,7 @@ def refresh_persons()
 		    notes_on_availability: "Never available. Always at GA WDI.",
 		    description: "Bearded.",
 
-		    is_user: true,
-		    is_caregiver: true
+		    type: "User"
 			})
 
 
@@ -45,8 +44,7 @@ def refresh_persons()
 		    notes_on_availability: "Works from home Tuesd and Thurs (with support). Available Friday.",
 		    description: 'mama is the best.',
 
-		    is_user: true,
-		    is_caregiver: true
+		    type: "User"
 
 			})
 
@@ -62,7 +60,7 @@ def refresh_persons()
 		    notes_on_availability: "Avail Wed, Monday mornings, Thrusdays",
 		    description: "sweet lady.",
 
-		    is_caregiver: true
+		    type: "Caregiver"
 
 			})
 
@@ -76,7 +74,7 @@ def refresh_persons()
 		    notes_on_availability: "target of 28 hours per week",
 		    description: "nanny",
 
-		    is_caregiver: true
+		    type: "Caregiver"
 		})
 
 
@@ -91,7 +89,7 @@ def refresh_persons()
 		    notes_on_availability: "ready to party at 3AM",
 		    description: "the drooler",
 
-		    is_child: true
+		    type: "Child"
 
 			})
 
@@ -104,7 +102,7 @@ def refresh_persons()
 		    notes_on_availability: "always availble all the time",
 		    description: "gobbler of mac'n'cheese",
 
-		    is_child: true
+		    type: "Child"
 		    
 			})
 
@@ -117,78 +115,111 @@ def refresh_calendar_entries()
 
 	require 'time'
 
-	## CHILDCARE
+	## VIA CHILD
+		## CHILDCARE ()
 
-		$max.calendar_entries.create({
-			start_datetime: Time.parse('3am'),
-			end_datetime: Time.parse('7:30am'),
-			name: 'dad home',
-			image_url: nil,
-			family_id: nil,
-			desription: 'dad home',
+			$max.calendar_entries.create({
+				start_datetime: Time.parse('3am'),
+				end_datetime: Time.parse('7:30am'),
+				name: 'dad home',
+				image_url: nil,
+				family_id: nil,
+				desription: 'dad home',
+
+				type: 'Appointment'
+				
+				})
+	    	
+			$max.calendar_entries.create({
+				start_datetime: Time.parse('8am'),
+				end_datetime: Time.parse('4pm'),
+				name: 'grandma watches me',
+				image_url: nil,
+				family_id: nil,
+				desription: 'grandma watches me',
+
+				type: 'Appointment'
+				
+				})
+
+
+		## APPOINTMENTS
+
+			$max.calendar_entries.create({
+				start_datetime: Time.parse('8:45am'),
+		    	end_datetime: Time.parse('12:30pm'),
+		    	name: 'preschool',
+		    	image_url: nil,
+		    	family_id: nil,
+		    	desription: 'I get to see my friends at school',
+
+		    	type: 'Childcare'
+
+		    	})
+
+			$max.calendar_entries.create({
+				start_datetime: Time.parse('3pm'),
+		    	end_datetime: Time.parse('3:45pm'),
+		    	name: 'swim class',
+		    	image_url: nil,
+		    	family_id: nil,
+		    	desription: 'I learn to swim',
+		    	
+
+				type: 'Childcare'
+
+				})
+
+
+		## HAPPENINGS
+
+			$max.calendar_entries.create({
+				start_datetime: Time.parse('8am'),
+		    	end_datetime: Time.parse('8:30am'),
+		    	name: 'breakfast',
+		    	image_url: nil,
+		    	family_id: nil,
+		    	desription: 'yum',
+
+		    	type: 'Happening'
+		    	})
+
+			$max.calendar_entries.create({
+				start_datetime: Time.parse('11:30am'),
+		    	end_datetime: Time.parse('12:pm'),
+		    	name: 'lunch at school',
+		    	image_url: nil,
+		    	family_id: nil,
+		    	desription: 'nom nom nom',
+
+		    	type: 'Happening'
+
+		    	})
+
+			$max.calendar_entries.create({
+				start_datetime: Time.parse('5pm'),
+		    	end_datetime: Time.parse('5:30pm'),
+		    	name: 'dinner at home',
+		    	image_url: nil,
+		    	family_id: nil,
+		    	desription: 'my favorite',
+
+		    	type: 'Happening'
+		    	})
+
 			
-			})
-    	
-		$max.calendar_entries.create({
-			start_datetime: Time.parse('8am'),
-			end_datetime: Time.parse('4pm'),
-			name: 'grandma watches me',
-			image_url: nil,
-			family_id: nil,
-			desription: 'grandma watches me',
-			
-			})
+	## VIA CAREGIVER
+		$dad.calendar_entries.create({
+		start_datetime: Time.parse('2am'),
+		end_datetime: Time.parse('8am'),
+		name: 'dad home',
+		image_url: nil,
+		family_id: nil,
+		desription: 'dad home',
 
-
-	## APPOINTMENTS
-
-		$max.calendar_entries.create({
-			start_datetime: Time.parse('8:45am'),
-	    	end_datetime: Time.parse('12:30pm'),
-	    	name: 'preschool',
-	    	image_url: nil,
-	    	family_id: nil,
-	    	desription: 'I get to see my friends at school',
-	    	})
-
-		$max.calendar_entries.create({
-			start_datetime: Time.parse('3pm'),
-	    	end_datetime: Time.parse('3:45pm'),
-	    	name: 'swim class',
-	    	image_url: nil,
-	    	family_id: nil,
-	    	desription: 'I learn to swim',
-	    	})
-
-
-	## HAPPENINGS
-
-		$max.calendar_entries.create({
-			start_datetime: Time.parse('8am'),
-	    	end_datetime: Time.parse('8:30am'),
-	    	name: 'breakfast',
-	    	image_url: nil,
-	    	family_id: nil,
-	    	desription: 'yum',
-	    	})
-
-		$max.calendar_entries.create({
-			start_datetime: Time.parse('11:30am'),
-	    	end_datetime: Time.parse('12:pm'),
-	    	name: 'lunch at school',
-	    	image_url: nil,
-	    	family_id: nil,
-	    	desription: 'nom nom nom',
-	    	})
-
-		$max.calendar_entries.create({
-			start_datetime: Time.parse('5pm'),
-	    	end_datetime: Time.parse('5:30pm'),
-	    	name: 'dinner at home',
-	    	image_url: nil,
-	    	family_id: nil,
-	    	desription: 'my favorite',
-	    	})
+		type: 'Appointment'
+		
+		})
 
 
 end

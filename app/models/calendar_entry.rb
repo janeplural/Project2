@@ -3,9 +3,10 @@ class CalendarEntry < ActiveRecord::Base
 	## TRAVERSING THE DATA
 
 		has_many :participations
-		has_many :persons, through: :participations
-
-
+			has_many :persons, through: :participations
+				has_many :children, through: :participations
+				has_many :caregivers, through: :participations
+				has_many :users, through: :participations
 
 	## ASSOCIATED PERSONS 
 		
@@ -20,23 +21,23 @@ class CalendarEntry < ActiveRecord::Base
 				# end
 
 			### simple calls
-				def all_persons
-					self.persons
-				end
+				# def all_persons
+				# 	persons
+				# end
 
-				def caregivers		#FIX
-					#right now this returns everthing, eventually it should filter.
-					self.persons.where(is_caregiver: true)
-				end
+				# def caregivers		#FIX
+				# 	#right now this returns everthing, eventually it should filter.
+				# 	persons.where(type: 'Caregiver')
+				# end
 
-				def children		#FIX
-					#right now this returns everthing, eventually it should filter.
-					self.persons.where(is_child: :true)
-				end
+				# def children		#FIX
+				# 	#right now this returns everthing, eventually it should filter.
+				# 	persons.where(type: 'Child')
+				# end
 
-				def users
-					self.persons.where(is_user: :true)
-				end
+				# def users
+				# 	persons.where(type: 'User')
+				# end
 
 
 
