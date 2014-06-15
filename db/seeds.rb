@@ -40,7 +40,7 @@ def refresh_persons()
 			first_name: "Karina",
 			last_name: "Linch",
 			uploaded_headshot_url: nil,
-		    facebook_username: 'mslinch',
+		    facebook_username: 'karinalinch',
 		    notes_on_availability: "Works from home Tuesd and Thurs (with support). Available Friday.",
 		    description: 'mama is the best.',
 
@@ -85,7 +85,7 @@ def refresh_persons()
 			first_name: "Sam",
 			last_name: "Randall",
 			uploaded_headshot_url: nil,
-		    facebook_username: 'samrandall',
+		    facebook_username: nil,
 		    notes_on_availability: "ready to party at 3AM",
 		    description: "the drooler",
 
@@ -98,7 +98,7 @@ def refresh_persons()
 			first_name: "Max",
 			last_name: "Randall",
 			uploaded_headshot_url: nil,
-		    facebook_username: 'maxrandall',
+		    facebook_username: 'MaxwellRandall',
 		    notes_on_availability: "always availble all the time",
 		    description: "gobbler of mac'n'cheese",
 

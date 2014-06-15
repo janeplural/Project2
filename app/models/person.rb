@@ -10,15 +10,18 @@ class Person < ActiveRecord::Base
 
 
 
-	def headshot_url
+	def headshot_image_url
 		# return silloeutte if nothing else
-		# check for Fle/IO
-		# check for doggies
 		facebook_headshot_url
+		# return image_tag("silloeutte.png")
 	end
 
 	def facebook_headshot_url
 		facebook_username = self.facebook_username
+
+		if !facebook_username
+			return "NO IMAGE #FIX"
+		end
 
 		# facebook_profile_JSON = HTTParty.get("http://graph.facebook.com/#{facebook_username}")
 		# facebook_profile_hash = JSON.parse(facebook_profile_JSON)
@@ -33,7 +36,8 @@ class Person < ActiveRecord::Base
 		facebook_headshot_url = facebook_picture_hash['picture']['data']['url']
 
 		if facebook_headshot_is_silhouette == true
-			return "FACEBOOK HEADSHOT IT SILLOETTE"
+			# return image_tag("silloeutte.png")
+			return 'NO IMAGE # FIX'
 		elsif facebook_headshot_is_silhouette == false
 			return facebook_headshot_url
 		end

@@ -20,7 +20,7 @@
 			<div class="container sixteen columns user-nav">
 				<div class="user-pic">
 					<!-- <img src=""> -->
-					<p>Image Welcome, Username</p>
+					<p>Image Welcome, Username#FIX should be current user after auth is done</p>
 				</div>
 
 				<div id="logout">
@@ -44,7 +44,7 @@
 							<h4><%= child.nickname %></h4>
 						</div>
 						<div class="child-photo">
-							<h4>child Image HERE</h4>
+							<h4><p><%= image_tag(child.headshot_image_url)%></p></h4>
 						</div>
 						<div class="update-button">
 							<p>Update</p>
@@ -68,7 +68,9 @@
 				<% @family.caregivers.each do |caregiver| %>
 
 					<div class="caregiver-pic">
-						<p><img src="<%#= caregiver.headshot_image_url %>" alt="headshot image for <%= caregiver.nickname %>" height='100px' width='100px' ></p>
+						<!-- <p><%#= image_tag("silloeutte.png") %></p> -->
+						<p><%= image_tag(caregiver.headshot_image_url)%></p>
+						
 						<p><%= caregiver.nickname %></p>
 					</div>
 
