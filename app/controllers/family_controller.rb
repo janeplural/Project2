@@ -28,7 +28,6 @@ class FamilyController < ApplicationController
 	end
 
 
-
 	def edit
 	end
 
