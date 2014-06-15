@@ -11,20 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140613005040) do
+ActiveRecord::Schema.define(version: 20140613145255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "calendar_entries", force: true do |t|
+    t.string   "type"
+    t.integer  "family_id"
     t.datetime "start_datetime"
     t.datetime "end_datetime"
     t.string   "name"
-    t.string   "image_url"
-    t.integer  "family_id"
     t.text     "desription"
-    t.string   "event_type"
-    t.integer  "event_id"
+    t.string   "image_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "children", force: true do |t|
+    t.string   "index"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,14 +48,15 @@ ActiveRecord::Schema.define(version: 20140613005040) do
   end
 
   create_table "persons", force: true do |t|
+    t.string   "type"
     t.string   "family_id"
     t.string   "nickname"
     t.string   "first_name"
     t.string   "last_name"
     t.text     "description"
+    t.string   "headshot_used"
     t.string   "facebook_username"
     t.string   "uploaded_headshot_url"
-    t.string   "headshot_used"
     t.text     "notes_on_availability"
     t.datetime "created_at"
     t.datetime "updated_at"

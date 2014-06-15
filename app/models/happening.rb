@@ -1,0 +1,3 @@
+class Happening < CalendarEntry
+
+end

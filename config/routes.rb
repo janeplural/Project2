@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   # resources :family
+  root to: 'children#index'
 
+  resources :family do
+    resources :children
+  end
   
 
 

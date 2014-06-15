@@ -1,0 +1,3 @@
+class Childcare < CalendarEntry
+
+end

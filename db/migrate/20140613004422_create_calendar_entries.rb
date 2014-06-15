@@ -1,17 +1,17 @@
 class CreateCalendarEntries < ActiveRecord::Migration
   def change
     create_table :calendar_entries do |t|
+      
+      # JOIN table 'participations' connects events to persons
+      t.string :type # Single Table Inheritance. Appointment, Childcare, Happening
+      t.integer :family_id  #belongs to family #FIX
+
       t.datetime :start_datetime
       t.datetime :end_datetime
+      
       t.string :name
-      t.string :image_url
-      t.integer :family_id
       t.text :desription
-
-      # This may eventually become the guts of a polymoric interface
-      t.string :event_type      # either :childcare, :appointment, or :happening
-      t.integer :event_id
-
+      t.string :image_url
 
       t.timestamps
     end

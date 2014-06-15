@@ -2,21 +2,21 @@ class CreatePersons < ActiveRecord::Migration
   def change
     create_table :persons do |t|
       
-      t.string :family_id
-
-      # t.integer :member_id
-      # t.string :member_type
+      # JOIN table 'participations' connects persons to events
+      t.string :type # Single Table Inheritance. Child, Caregiver, User < Caregiver
+      t.string :family_id  #belongs to family
 
       t.string :nickname
       t.string :first_name
-      t.string :last_name
-      
+      t.string :last_name      
       t.text :description
-      
 
+      t.string :headshot_used
       t.string :facebook_username
       t.string :uploaded_headshot_url
-      t.string :headshot_used
+
+
+    
 
 
       #stuff that belongs in the child class
@@ -27,8 +27,6 @@ class CreatePersons < ActiveRecord::Migration
 
 
       #stuff that belongs in the user class
-
-
 
       t.timestamps
     end

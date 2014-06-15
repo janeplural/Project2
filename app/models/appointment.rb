@@ -1,0 +1,3 @@
+class Appointment < CalendarEntry
+
+end
