@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20140613145255) do
     t.string   "last_name"
     t.text     "description"
     t.string   "headshot_used"
-    t.string   "facebook_username"
+    t.string   "<%= caregiver.nickname %>"
     t.string   "uploaded_headshot_url"
     t.text     "notes_on_availability"
     t.datetime "created_at"

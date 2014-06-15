@@ -24,7 +24,7 @@ class FamilyController < ApplicationController
 			@users = @family.users
 
 		@payload = build_payload(); #20.times {puts ""}; ap @payload
-		render json: @payload
+		# render json: @payload
 	end
 
 
