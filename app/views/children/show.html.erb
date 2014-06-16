@@ -7,7 +7,6 @@
 	<title>Kid View</title>
 </head>
 
-
 <body>
 
 	<div class="container">
@@ -41,44 +40,27 @@
 			<!-- This block of code is needed to kickstart rails classes into working -->
 				<!-- #FIX this shouln't be nessecary in production environment, just development environment -->
 				<!-- #FIX John should tweak rails config so that this isn't needed -->
-				<% @childcares.last.persons.count %>	
-				<% @childcares.last.children.count %>	
-				<% @childcares.last.users.count %>	
-				<% @childcares.last.luddites.count %>	
-				<% @childcares.last.caregivers.count %>	
+			<% @childcares.last.persons.count %>	
+			<% @childcares.last.children.count %>	
+			<% @childcares.last.users.count %>	
+			<% @childcares.last.luddites.count %>	
+			<% @childcares.last.caregivers.count %>	
 			<!-- This block of code is needed to kickstart rails classes into working -->
 
-
-			<div class="seven columns" id="chilcares-schedule"> 
+			<div class="seven columns" id="childcares-schedule"> 
 		
-
 				<% @childcares.each do |childcare| %>
-					<div id="childcare-entry">
+					<div class="childcare-entry">
 						<%= childcare.name %>
-
-
-
 						<% childcare.caregivers.each do |caregiver| %>	
-							<div class="caregiver-box">
-								<%= image_tag(caregiver.headshot_image_url, class: "caregiver-pic")%>
-								<%= caregiver.nickname %>
-							</div> 			<!-- close caregiver div -->
-						<% end %> 			<!-- close caregivers loop -->
-
-
-
-					</div>				<!-- close childcare entry -->
-				<% end %> 				<!-- close childcares.each loop -->
-
-			</div> 						<!-- close childcares column div -->
-
-
-
-
-
-
-
-
+							<div class="caregiver-div">
+							<%= image_tag(caregiver.headshot_image_url, class: "caregiver-pic")%>
+							<%= caregiver.nickname %>
+							</div> 	<!-- caregiver-div closer -->
+						<% end %> 	<!-- close caregivers loop -->
+					</div> 			<!-- close childcare-entry div -->
+				<% end %> 	<!-- close childcares.each loop -->
+			</div> 	<!-- close childcares-schedule column div -->
 
 			<div class="two columns" id="timeline-container">
 				<h5>Timeline</h5>
@@ -136,12 +118,10 @@
 			
 			</div> <!-- close appointments schedule column -->
 
-
-
-
 		</div> <!-- close calendar entry container -->
 
-	</div> <!-- close container -->
+	</div>
+
 
 
 </body>
