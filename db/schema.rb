@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140613145255) do
   create_table "participations", force: true do |t|
     t.integer  "person_id"
     t.integer  "calendar_entry_id"
+    t.string   "name_DNU_just_for_debugging"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

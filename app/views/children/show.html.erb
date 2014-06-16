@@ -40,19 +40,25 @@
 			<!-- #CHILDCARE SCHEDULE</br></br> -->
 			<% @childcares.each do |childcare| %>
 				<div class="caregiver-entry">
-					#CHILDCARE ENTRY</br>
-					<%= childcare.name %>, id: <%= childcare.id %></br>
+					<!-- #CHILDCARE ENTRY</br> -->
+					<!-- <%#= childcare.name %>, id: <%#= childcare.id %>< --><!-- /br>
 					</br>
 						CaregiverCount: 
-						<%= childcare.caregivers.count %>
-						#FIX - JR why isn't this working? It should be 2 or 3, not 0!
+						<%#= childcare.caregivers.count %>
+						#FIX - JR why isn't this working? It should be 2 or 3, not 0! -->
 						<%# childcare.caregivers.each do |caregiver| %> 
-							<!-- #CAREGIVER -->
-							<!-- <div class="caregiver">
-								#CAREGIVER ENTRY
+							
+							<div class="caregiver">
+								#CAREGIVER ENTRY TEST
 								<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">	</<br>
 								
-							</div> -->
+							</div>
+
+							<div class="caregiver">
+								#CAREGIVER ENTRY TEST
+								<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">	</<br>
+								
+							</div>
 						<%# end %>
 					</br>
 					</br>
