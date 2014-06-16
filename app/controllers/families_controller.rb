@@ -27,6 +27,8 @@ class FamiliesController < ApplicationController
 		# render json: @payload
 
 		@child = Child.new
+
+
 	end
 
 

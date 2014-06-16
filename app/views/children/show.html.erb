@@ -2,12 +2,15 @@
 
 <!DOCTYPE html>
 
+
 <head>
 	<title>Kid View</title>
 </head>
+
 <body>
 
 	<div class="container">
+
 		<div class="sixteen columns header-nav">
 			<div id="header-title">
 				<h1>Our Day</h1>
@@ -15,7 +18,8 @@
 
 			<div class="navigation" id="preview-button">
 				<!-- <a id="previous" href src="#">Prev</a> -->
-				<div id="triangle-left"></div>
+				<div id="triangle-left">
+				</div>
 			</div>
 
 			<div id="date-time">
@@ -25,106 +29,100 @@
 
 			<div class="navigation" id="next-button">
 				<!-- <a id="next" href src="#">Next</a> -->
-				<div id="triangle-right"></div>				
+				<div id="triangle-right"></div>
 			</div>
-		</div>
-
-		<div class="seven columns" id="chilcares-schedule"> 
-			<!-- #CHILDCARE SCHEDULE</br></br> -->
-			<% @childcares.each do |childcare| %>
-				<div class="childcare-entry">
-					#CHILDCARE ENTRY</br>
-					<%= childcare.name %>, id: <%= childcare.id %></br>
-					</br>
-						CaregiverCount: 
-						<%= childcare.caregivers.count %>
-						#FIX - JR why isn't this working? It should be 2 or 3, not 0!
-						<%# childcare.caregivers.each do |caregiver| %> 
-							<!-- #CAREGIVER -->
-							<!-- <div class="caregiver">
-								#CAREGIVER ENTRY
-								<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">	</<br>
-								
-							</div> -->
-						<%# end %>
-					</br>
-					</br>
-
-				</div>
-			<% end %>
-			
-	
-			<!-- <div class="caregiver-entry">
-				<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">		
-
-				<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg"> -->
-
-<!--  original code to make placeholders  -->
-<!-- 				<div class="caregiver-pic">
-					<h4>User Image HERE</h4>
-				</div> -->
-			<!-- </div>
-
-			<div class="caregiver-entry">
-				<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">
-
-				<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">
-
-				<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">
-
-			</div> -->
 
 		</div>
 
-		<div class="two columns" id="timeline-box">
-			<h5>Timeline</h5>
-			<!-- <div id="burst-12"></div> -->
-			<ul id="timeline">
-				<li class="time-tick"></li> 
-			</ul>
-		</div>
 
+		<div id="calendar-entry-container">
 
+			<!-- This block of code is needed to kickstart rails classes into working -->
+				<!-- #FIX this shouln't be nessecary in production environment, just development environment -->
+				<!-- #FIX John should tweak rails config so that this isn't needed -->
+			<% @childcares.last.persons.count %>	
+			<% @childcares.last.children.count %>	
+			<% @childcares.last.users.count %>	
+			<% @childcares.last.luddites.count %>	
+			<% @childcares.last.caregivers.count %>	
+			<!-- This block of code is needed to kickstart rails classes into working -->
 
+			<div class="seven columns" id="childcares-schedule"> 
+		
+				<% @childcares.each do |childcare| %>
+					<div class="childcare-entry">
+						<%= childcare.name %>
+						<% childcare.caregivers.each do |caregiver| %>	
+							<div class="caregiver-div">
+							<%= image_tag(caregiver.headshot_image_url, class: "caregiver-pic")%>
+							<%= caregiver.nickname %>
+							</div> 	<!-- caregiver-div closer -->
+						<% end %> 	<!-- close caregivers loop -->
+					</div> 			<!-- close childcare-entry div -->
+				<% end %> 	<!-- close childcares.each loop -->
+			</div> 	<!-- close childcares-schedule column div -->
 
-		<div class="seven columns" id="appointments-schedule">
-			<!-- #ACTIVITY SCHEDULE</br></br> -->
-			<% @appointments.each do |appointment| %>
-				<div class="appointment-entry">
-				<!-- #ACTIVITY ENTRY -->
-					<img class="scale-with-grid appointment-image" src="<%= appointment.image_url %>">
-					<div class="appointment-text">
-						<%= appointment.name %>
-						<p><%= appointment.description %></p>
+			<div class="two columns" id="timeline-container">
+				<h5>Timeline</h5>
+				<!-- <div id="burst-12"></div> -->
+				<div id="timeline-box">
+					<p> I am a timeline box </p>
+					
+						<!-- FIGURE OUT TIME -->
+						<%= Time.now.strftime("It's %l:%M%P")%>
+						<%# calculation_hash = { container_start_time: Time.now.beginning_of_day(),  container_end_time: Time.now.end_of_day(), entry_time: Time.now()} %>
+						<% calculation_hash = {} %>
+
+					<div id="child_face_mover" 
+
+						style="
+							color:yellow;
+							position: relative;
+							top: 200px;
+							top: 60%
+							top: <%= CalendarTimeHelper.pos_percentage_from_time(calculation_hash) %>%;
+					"> 
+						I'm kid head</br>
+						Position_percentage is <%= CalendarTimeHelper.pos_percentage_from_time(calculation_hash) %></br>
+						Being inserted.... top: <%= CalendarTimeHelper.pos_percentage_from_time(calculation_hash) %>% </br>
+						<%= image_tag(@child.headshot_image_url, class: "child-photo")%></br>
+						<%= @child.nickname %>
+						<%= CalendarTimeHelper.hello %>
+
 					</div>
-				<!-- </br>
-				</br> -->
-			<% end %>
-		<!-- 	<div class="activity-entry">
-				<img class="scale-with-grid activity-image" src="http://www.sierrapreschool.com/Public/Images/homeSlide/children-learning-geography.jpg">
-				<div class="image-text">
-					Preschool
-				
-			</div>
 
-			<div class="empty-entry"></div>
+					
 
-			<div class="activity-entry">
-				<img class="scale-with-grid activity-image" src="http://www.lakejackson-tx.gov/images/pages/N242/swim%20lesson2.jpg">
-				<div class="image-text">
-					Swim Class
+
 				</div>
-			</div> -->
 
-<!-- 			<div class="activity-entry">
-				<h4>Activity Image HERE</h4>
-				<div class="image-text">
-					<p>Activity Desc HERE</p>
-				</div>
-			</div> -->
-		</div>
+			</div> <!-- close timeline container -->
+
+
+
+
+
+
+
+			<div class="seven columns" id="appointments-schedule">
+				<!-- #ACTIVITY SCHEDULE</br></br> -->
+				<% @appointments.each do |appointment| %>
+					<div class="appointment-entry">
+					<!-- #ACTIVITY ENTRY -->
+						<img class="scale-with-grid appointment-image" src="<%= appointment.image_url %>">
+						<div class="appointment-text">
+							<%= appointment.name %>
+							<p><%= appointment.description %></p>
+						</div>
+				<% end %>
+			
+			</div> <!-- close appointments schedule column -->
+
+		</div> <!-- close calendar entry container -->
 
 	</div>
+
+
 
 </body>
 </html>

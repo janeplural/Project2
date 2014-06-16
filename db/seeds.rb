@@ -122,7 +122,7 @@ def refresh_calendar_entries()
 	## VIA CHILD
 		## CHILDCARE
 
-			$childcare1 = $max.calendar_entries.create({
+			$childcare1 = $max.childcares.create({
 				start_datetime: Time.parse('3am'),
 				end_datetime: Time.parse('7:30am'),
 				name: 'dad home',
@@ -132,11 +132,15 @@ def refresh_calendar_entries()
 				type: 'Childcare'
 				})
 
-				$childcare1.participations.create({
-					person_id: $dad.id
-					})
+				# $childcare1.participations.create({
+				# 	person_id: $dad.id,
+				# 	name_DNU_just_for_debugging: 'childcare1 - dad (should also connect to max)'
+				# 	})
+			
+				$childcare1.add_caregiver($dad.id)
+				$childcare1.add_caregiver($mom.id)
 	    	
-			$childcare2 = $max.calendar_entries.create({
+			$childcare2 = $max.childcares.create({
 				start_datetime: Time.parse('8am'),
 				end_datetime: Time.parse('4pm'),
 				name: 'grandma watches me',
@@ -148,20 +152,23 @@ def refresh_calendar_entries()
 				
 				})
 
-				$childcare2.participations.create({
-					person_id: $dad.id
-					})
+				# $childcare2.participations.create({
+				# 	person_id: $dad.id,
+				# 	name_DNU_just_for_debugging: 'childcare2 - dad (should also connect to max, grandma)'
+				# 	})
 
-				$childcare2.participations.create({
-					person_id: $grandma.id
-					})
+				# $childcare2.participations.create({
+				# 	person_id: $grandma.id,
+				# 	name_DNU_just_for_debugging: 'childcare2 - grandma (should also connect to max, dad)'
+				# 	})
 
-
+				$childcare2.add_caregiver($dad.id)
+				$childcare2.add_caregiver($grandma.id)
 
 
 		## APPOINTMENTS
 
-			$max.calendar_entries.create({
+			$max.appointments.create({
 				start_datetime: Time.parse('8:45am'),
 		    	end_datetime: Time.parse('12:30pm'),
 		    	name: 'preschool',
@@ -173,7 +180,7 @@ def refresh_calendar_entries()
 
 		    	})
 
-			$max.calendar_entries.create({
+			$max.appointments.create({
 				start_datetime: Time.parse('3pm'),
 		    	end_datetime: Time.parse('3:45pm'),
 		    	name: 'swim class',
@@ -189,7 +196,7 @@ def refresh_calendar_entries()
 
 		## HAPPENINGS
 
-			$max.calendar_entries.create({
+			$max.happenings.create({
 				start_datetime: Time.parse('8am'),
 		    	end_datetime: Time.parse('8:30am'),
 		    	name: 'breakfast',
@@ -200,7 +207,7 @@ def refresh_calendar_entries()
 		    	type: 'Happening'
 		    	})
 
-			$max.calendar_entries.create({
+			$max.happenings.create({
 				start_datetime: Time.parse('11:30am'),
 		    	end_datetime: Time.parse('12:pm'),
 		    	name: 'lunch at school',
@@ -212,7 +219,7 @@ def refresh_calendar_entries()
 
 		    	})
 
-			$max.calendar_entries.create({
+			$max.happenings.create({
 				start_datetime: Time.parse('5pm'),
 		    	end_datetime: Time.parse('5:30pm'),
 		    	name: 'dinner at home',

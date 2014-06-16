@@ -2,11 +2,12 @@
 #
 # Table name: participations
 #
-#  id                :integer          not null, primary key
-#  person_id         :integer
-#  calendar_entry_id :integer
-#  created_at        :datetime
-#  updated_at        :datetime
+#  id                          :integer          not null, primary key
+#  person_id                   :integer
+#  calendar_entry_id           :integer
+#  name_DNU_just_for_debugging :string(255)
+#  created_at                  :datetime
+#  updated_at                  :datetime
 #
 
 class Participation < ActiveRecord::Base
