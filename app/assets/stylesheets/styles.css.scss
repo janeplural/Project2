@@ -178,7 +178,7 @@ border-top-right-radius: 10px;
 .child{
 	text-align: center;
 	width: 32%;
-	float: inline;
+	float: left;
 }
 
 .child-photo-div{
@@ -292,3 +292,19 @@ border-top-right-radius: 10px;
 	vertical-align: middle;	
 }
 
+#new_child {
+	background: hotpink;
+	border-radius: 10px;
+	position: absolute;
+	top: 300px;
+	left: 500px;
+	padding: 20px;
+}
+
+.hidden {
+	display: none;
+}
+
+.block {
+	display: block;
+}
