@@ -4,12 +4,6 @@
 
 <head>
 	<title>Kid View</title>
-	<link rel="stylesheet" href="base.css">
-	<link rel="stylesheet" href="layout.css">
-	<link rel="stylesheet" href="skeleton.css">
-	<link rel="stylesheet" href="skeleton_wide.css">
-	<link rel="stylesheet" href="styles.css.scss">
-	<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
@@ -18,6 +12,7 @@
 			<div id="header-title">
 				<h1>Our Day</h1>
 			</div>
+
 			<div class="navigation" id="preview-button">
 				<!-- <a id="previous" href src="#">Prev</a> -->
 				<div id="triangle-left"></div>
@@ -25,8 +20,7 @@
 
 			<div id="date-time">
 				<h2>TODAY</h2>
-				<h4>Monday, June 9, 2014</h4>
-				<h4>3:00 PM</h4>
+				<h2><%=Time.now.strftime("It's %l:%M%P on %A, %B %e")%></h2>
 			</div>
 
 			<div class="navigation" id="next-button">
@@ -35,11 +29,10 @@
 			</div>
 		</div>
 
-		#"FIX - div ID should be 'childcare/childcares (a class of calendar entry), not 'caregiver/caregivers' (a class of person)."
-		<div class="seven columns" id="caregiver-schedule"> 
+		<div class="seven columns" id="chilcares-schedule"> 
 			<!-- #CHILDCARE SCHEDULE</br></br> -->
 			<% @childcares.each do |childcare| %>
-				<div class="caregiver-entry">
+				<div class="childcare-entry">
 					#CHILDCARE ENTRY</br>
 					<%= childcare.name %>, id: <%= childcare.id %></br>
 					</br>
@@ -94,15 +87,14 @@
 
 
 
-		<div class="seven columns" id="activity-schedule">
+		<div class="seven columns" id="appointments-schedule">
 			<!-- #ACTIVITY SCHEDULE</br></br> -->
 			<% @appointments.each do |appointment| %>
-				<div class="activity-entry">
+				<div class="appointment-entry">
 				<!-- #ACTIVITY ENTRY -->
-					<img class="scale-with-grid activity-image" src="<%= appointment.image_url %>">
-					<div class="image-text">
-					<%= appointment.name %></br>
-					#FIX This class should probably be "appointment-name-text", not "image text".</br>
+					<img class="scale-with-grid appointment-image" src="<%= appointment.image_url %>">
+					<div class="appointment-text">
+						<%= appointment.name %>
 						<p><%= appointment.description %></p>
 					</div>
 				<!-- </br>
