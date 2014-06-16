@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 
 	<head>
@@ -11,31 +7,29 @@
 		<link rel="stylesheet" href="layout.css">
 		<link rel="stylesheet" href="skeleton.css">
 		<link rel="stylesheet" href="skeleton_wide.css">
+		<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
 	</head>
 
 	<body>
 
+		<div id="user-nav">
+			<div class="sixteen columns">
+				<img class="scale-with-grid user-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">
+
+				<p>Welcome, Username#FIX should be current user after auth is done</p>
+
+				<a id="logout" href="#">Logout</a>
+			</div>
+		</div>
+
 		<div class="container">
 
-			<div class="container sixteen columns user-nav">
-				<div class="user-pic">
-					<!-- <img src=""> -->
-					<p>Image Welcome, Username#FIX should be current user after auth is done</p>
-				</div>
-
-				<div id="logout">
-					<p>Logout</p>
-				</div>
+			<div class="sixteen columns" id="user-date-time">
+				<h1>Our Day</h1>
+				<h2><%=Time.now.strftime("It's %l:%M%P on %A, %B %e")%></h2>
 			</div>
 
-			<div class="sixteen columns user-date-time">
-					<!-- <h1>It's 2:00pm on Monday, June 9</h1> -->
-					<h1><%=Time.now.strftime("It's %l:%M%P on %A, %B %e")%></h1>
-					
-					
-			</div>
-
-			<div class="container sixteen columns" id="list-children">
+			<div class="sixteen columns" id="list-children">
 
 				<% @family.children.each do |child| %>
 
@@ -43,14 +37,17 @@
 						<div class="child_name">
 							<h4><%= child.nickname %></h4>
 						</div>
-						<div class="child-photo">
-							<h4><p><%= image_tag(child.headshot_image_url)%></p></h4>
+						<div class="child-photo-div">
+							<%= image_tag(child.headshot_image_url, class: "child-photo")%>
 						</div>
-						<div class="update-button">
-							<p>Update</p>
-						</div>
-						<div class="child-view-button">
-							<p>childView</p>
+						<div>
+							<div class="update-button">
+<!-- need to add URL's to buttons, make child photo a link to View? -->
+								<%= link_to("Update", ) %>
+							</div>
+							<div class="child-view-button">
+								<%= link_to("Kid's View", ) %>
+							</div>
 						</div>
 					</div>
 
@@ -60,21 +57,28 @@
 
 			<div class="sixteen columns">
 				
-			<h4>Caregivers</h4>
+				<h4>Caregivers</h4>
 
-			<div id="add-caregiver">
-				<h3>+</h3>
-			</div>
-				<% @family.caregivers.each do |caregiver| %>
-
-					<div class="caregiver-pic">
-						<!-- <p><%#= image_tag("silloeutte.png") %></p> -->
-						<p><%= image_tag(caregiver.headshot_image_url)%></p>
-						
-						<p><%= caregiver.nickname %></p>
+				<div class="caregiver-div">
+					<div id="add-caregiver">
+<!-- make this a link_to tag with image tag when icon is ready -->
+						<a href="#"><span style="font-size:75px">+</span></a>
 					</div>
+					<p>Add Caregiver</p>
+				</div>
 
-				<% end %>
+			<% @family.caregivers.each do |caregiver| %>
+
+				<div class="caregiver-div">
+					<!-- <p><%#= image_tag("silloeutte.png") %></p> -->
+					<%= image_tag(caregiver.headshot_image_url, class: "caregiver-pic")%>
+					
+					<p><%= caregiver.nickname %></p>
+				</div>
+
+			<% end %>
+				</div>
+				
 			</div>
 
 	</body>
