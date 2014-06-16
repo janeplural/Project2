@@ -3,7 +3,9 @@
 
 
 
-
+def delete_join_tables()
+	Participation.delete_all
+end 
 
 def refresh_family()
 	Family.delete_all
@@ -115,6 +117,8 @@ def refresh_calendar_entries()
 
 	require 'time'
 
+	CalendarEntry.delete_all
+
 	## VIA CHILD
 		## CHILDCARE
 
@@ -124,7 +128,7 @@ def refresh_calendar_entries()
 				name: 'dad home',
 				image_url: nil,
 				family_id: nil,
-				desription: 'dad home - made via Max',
+				description: 'dad home - made via Max',
 				type: 'Childcare'
 				})
 
@@ -138,7 +142,7 @@ def refresh_calendar_entries()
 				name: 'grandma watches me',
 				image_url: nil,
 				family_id: nil,
-				desription: 'grandma watches me',
+				description: 'grandma watches me',
 
 				type: 'Childcare'
 				
@@ -161,9 +165,9 @@ def refresh_calendar_entries()
 				start_datetime: Time.parse('8:45am'),
 		    	end_datetime: Time.parse('12:30pm'),
 		    	name: 'preschool',
-		    	image_url: nil,
+		    	image_url: "http://www.sierrapreschool.com/Public/Images/homeSlide/children-learning-geography.jpg",
 		    	family_id: nil,
-		    	desription: 'I get to see my friends at school',
+		    	description: 'I get to see my friends at school',
 
 		    	type: 'Appointment'
 
@@ -173,9 +177,9 @@ def refresh_calendar_entries()
 				start_datetime: Time.parse('3pm'),
 		    	end_datetime: Time.parse('3:45pm'),
 		    	name: 'swim class',
-		    	image_url: nil,
+		    	image_url: "http://www.lakejackson-tx.gov/images/pages/N242/swim%20lesson2.jpg",
 		    	family_id: nil,
-		    	desription: 'I learn to swim',
+		    	description: 'I learn to swim',
 		    	
 
 				type: 'Appointment'
@@ -191,7 +195,7 @@ def refresh_calendar_entries()
 		    	name: 'breakfast',
 		    	image_url: nil,
 		    	family_id: nil,
-		    	desription: 'yum',
+		    	description: 'yum',
 
 		    	type: 'Happening'
 		    	})
@@ -202,7 +206,7 @@ def refresh_calendar_entries()
 		    	name: 'lunch at school',
 		    	image_url: nil,
 		    	family_id: nil,
-		    	desription: 'nom nom nom',
+		    	description: 'nom nom nom',
 
 		    	type: 'Happening'
 
@@ -214,7 +218,7 @@ def refresh_calendar_entries()
 		    	name: 'dinner at home',
 		    	image_url: nil,
 		    	family_id: nil,
-		    	desription: 'my favorite',
+		    	description: 'my favorite',
 
 		    	type: 'Happening'
 		    	})
@@ -227,7 +231,7 @@ def refresh_calendar_entries()
 	# 	name: 'dad home',
 	# 	image_url: nil,
 	# 	family_id: nil,
-	# 	desription: 'dad home - made via dad',
+	# 	description: 'dad home - made via dad',
 
 	# 	type: 'Childcare'
 		
@@ -244,6 +248,8 @@ end
 ## CONFIG
 
 refresh_family()
+
+delete_join_tables()
 
 refresh_persons()
 	# refresh_children()		#doesn't work yet

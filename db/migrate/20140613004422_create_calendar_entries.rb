@@ -10,7 +10,7 @@ class CreateCalendarEntries < ActiveRecord::Migration
       t.datetime :end_datetime
       
       t.string :name
-      t.text :desription
+      t.text :description
       t.string :image_url
 
       t.timestamps

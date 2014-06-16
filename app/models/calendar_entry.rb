@@ -8,7 +8,7 @@
 #  start_datetime :datetime
 #  end_datetime   :datetime
 #  name           :string(255)
-#  desription     :text
+#  description    :text
 #  image_url      :string(255)
 #  created_at     :datetime
 #  updated_at     :datetime
