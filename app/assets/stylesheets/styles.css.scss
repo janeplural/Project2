@@ -38,11 +38,11 @@
 	margin: 0 4%;
 }
 
-#caregiver-schedule{
+#childcares-schedule{
 	/*background-color: yellow;*/
 }
 
-.caregiver-entry{
+.childcare-entry{
 	clear: both;
 	overflow: auto;
 	width: 90%;
@@ -80,11 +80,11 @@
 	display: block;
 }
 
-#activity-schedule{
+#appointments-schedule{
 	/*background-color: yellow;*/
 }
 
-.activity-entry{
+.appointment-entry{
 	width: 90%;
 	margin: 2% auto;
 	padding: 1%;
@@ -97,7 +97,7 @@
 	border-radius: 10px; 
 }
 
-.activity-image{
+.appointment-image{
 -moz-border-radius-topleft: 10px;
 -moz-border-radius-topright: 10px;
 -moz-border-radius-bottomright: 0px;
@@ -113,7 +113,7 @@ border-top-right-radius: 10px;
 
 }
 
-.image-text{
+.appointment-text{
 	border-top: 2px solid black;
 	font-family: 'Quicksand', sans-serif;
 	font-weight: bolder;
