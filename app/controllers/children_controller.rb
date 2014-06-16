@@ -9,7 +9,7 @@ class ChildrenController < ApplicationController
     @family = @child.family
 
     @calendar_entries = @child.calendar_entries
-    @childcares = @child.calendar_entries
+    @childcares = @child.childcares
     @appointments = @child.appointments
     @happenings = @child.happenings
 
@@ -18,7 +18,14 @@ class ChildrenController < ApplicationController
     # end
 
     @payload = build_payload(); #20.times {puts ""}; ap @payload
-    render json: @payload
+
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @payload }
+    end
+
+    # render json: @payload
 
   end
 

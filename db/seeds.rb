@@ -35,7 +35,7 @@ def refresh_persons()
 			})
 
 
-		mom = $seed_family.persons.create({
+		$mom = $seed_family.persons.create({
 			nickname: "Mom",
 			first_name: "Karina",
 			last_name: "Linch",
@@ -51,7 +51,7 @@ def refresh_persons()
 
 	## CAREGIVER
 
-		grandma = $seed_family.persons.create({
+		$grandma = $seed_family.persons.create({
 			nickname: "Grandma Janet",
 			first_name: "Janet",
 			last_name: "Randall",
@@ -65,7 +65,7 @@ def refresh_persons()
 			})
 
 
-		natt = $seed_family.persons.create({
+		$natt = $seed_family.persons.create({
 			nickname: "Natt",
 			first_name: "Piyapath",
 			last_name: "Longhamphia",
@@ -80,7 +80,7 @@ def refresh_persons()
 
 	## CHILD
 
-		sam = $seed_family.persons.create({
+		$sam = $seed_family.persons.create({
 			nickname: "SammyDoo",
 			first_name: "Sam",
 			last_name: "Randall",
@@ -118,17 +118,21 @@ def refresh_calendar_entries()
 	## VIA CHILD
 		## CHILDCARE
 
-			childcare1 = $max.calendar_entries.create({
+			$childcare1 = $max.calendar_entries.create({
 				start_datetime: Time.parse('3am'),
 				end_datetime: Time.parse('7:30am'),
 				name: 'dad home',
 				image_url: nil,
 				family_id: nil,
-				desription: 'dad home',
+				desription: 'dad home - made via Max',
 				type: 'Childcare'
 				})
+
+				$childcare1.participations.create({
+					person_id: $dad.id
+					})
 	    	
-			childcare2 = $max.calendar_entries.create({
+			$childcare2 = $max.calendar_entries.create({
 				start_datetime: Time.parse('8am'),
 				end_datetime: Time.parse('4pm'),
 				name: 'grandma watches me',
@@ -139,6 +143,16 @@ def refresh_calendar_entries()
 				type: 'Childcare'
 				
 				})
+
+				$childcare2.participations.create({
+					person_id: $dad.id
+					})
+
+				$childcare2.participations.create({
+					person_id: $grandma.id
+					})
+
+
 
 
 		## APPOINTMENTS
@@ -213,9 +227,9 @@ def refresh_calendar_entries()
 		name: 'dad home',
 		image_url: nil,
 		family_id: nil,
-		desription: 'dad home',
+		desription: 'dad home - made via dad',
 
-		type: 'Appointment'
+		type: 'Childcare'
 		
 		})
 
