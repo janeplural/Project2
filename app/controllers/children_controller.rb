@@ -9,7 +9,7 @@ class ChildrenController < ApplicationController
     @family = @child.family
 
     @calendar_entries = @child.calendar_entries
-    @chilcares = @child.calendar_entries
+    @childcares = @child.calendar_entries
     @appointments = @child.appointments
     @happenings = @child.happenings
 

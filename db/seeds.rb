@@ -116,21 +116,19 @@ def refresh_calendar_entries()
 	require 'time'
 
 	## VIA CHILD
-		## CHILDCARE ()
+		## CHILDCARE
 
-			$max.calendar_entries.create({
+			childcare1 = $max.calendar_entries.create({
 				start_datetime: Time.parse('3am'),
 				end_datetime: Time.parse('7:30am'),
 				name: 'dad home',
 				image_url: nil,
 				family_id: nil,
 				desription: 'dad home',
-
-				type: 'Appointment'
-				
+				type: 'Childcare'
 				})
 	    	
-			$max.calendar_entries.create({
+			childcare2 = $max.calendar_entries.create({
 				start_datetime: Time.parse('8am'),
 				end_datetime: Time.parse('4pm'),
 				name: 'grandma watches me',
@@ -138,7 +136,7 @@ def refresh_calendar_entries()
 				family_id: nil,
 				desription: 'grandma watches me',
 
-				type: 'Appointment'
+				type: 'Childcare'
 				
 				})
 
@@ -153,7 +151,7 @@ def refresh_calendar_entries()
 		    	family_id: nil,
 		    	desription: 'I get to see my friends at school',
 
-		    	type: 'Childcare'
+		    	type: 'Appointment'
 
 		    	})
 
@@ -166,7 +164,7 @@ def refresh_calendar_entries()
 		    	desription: 'I learn to swim',
 		    	
 
-				type: 'Childcare'
+				type: 'Appointment'
 
 				})
 

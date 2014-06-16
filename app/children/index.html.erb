@@ -1,5 +1,3 @@
-<!-- <p id="notice"><%#= notice %></p> -->
-
 <!DOCTYPE html>
 
 <head>
@@ -35,32 +33,18 @@
 			</div>
 		</div>
 
-		#"FIX - div ID should be 'childcare/childcares (a class of calendar entry), not 'caregiver/caregivers' (a class of person)."
-		<div class="seven columns" id="caregiver-schedule"> 
-
-			<% @childcares.each do |childcare| %>
-				<div class="caregiver-entry">
-						<%# childcare.caregivers.each do |caregiver| %>
-							<div class="caregiver">
-								<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">	</<br>
-								caregiver.nickname
-							</div>
-						<%# end %>
-					<%= childcare.name %>
-				</div>
-			<% end %>
-			
+		<div class="seven columns" id="caregiver-schedule">
 	
-			<!-- <div class="caregiver-entry">
+			<div class="caregiver-entry">
 				<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">		
 
-				<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg"> -->
+				<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">
 
 <!--  original code to make placeholders  -->
 <!-- 				<div class="caregiver-pic">
 					<h4>User Image HERE</h4>
 				</div> -->
-			<!-- </div>
+			</div>
 
 			<div class="caregiver-entry">
 				<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">
@@ -69,7 +53,7 @@
 
 				<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">
 
-			</div> -->
+			</div>
 
 		</div>
 

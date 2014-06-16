@@ -13,7 +13,7 @@ class CreatePersons < ActiveRecord::Migration
 
       t.string :headshot_type
       t.string :facebook_username
-      t.string :headshot_upload_url
+      t.string :uploaded_headshot_url
 
 
     
