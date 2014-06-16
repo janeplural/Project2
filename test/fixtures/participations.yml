@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: participations
+#
+#  id                :integer          not null, primary key
+#  person_id         :integer
+#  calendar_entry_id :integer
+#  created_at        :datetime
+#  updated_at        :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  person_id: 1
+  calendar_event_id: 1
+
+two:
+  person_id: 1
+  calendar_event_id: 1
