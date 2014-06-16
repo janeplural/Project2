@@ -1,0 +1,82 @@
+
+
+
+
+<!DOCTYPE html>
+
+	<head>
+		<title>User-Our Day</title>
+		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="base.css">
+		<link rel="stylesheet" href="layout.css">
+		<link rel="stylesheet" href="skeleton.css">
+		<link rel="stylesheet" href="skeleton_wide.css">
+	</head>
+
+	<body>
+
+		<div class="container">
+
+			<div class="container sixteen columns user-nav">
+				<div class="user-pic">
+					<!-- <img src=""> -->
+					<p>Image Welcome, Username#FIX should be current user after auth is done</p>
+				</div>
+
+				<div id="logout">
+					<p>Logout</p>
+				</div>
+			</div>
+
+			<div class="sixteen columns user-date-time">
+					<!-- <h1>It's 2:00pm on Monday, June 9</h1> -->
+					<h1><%=Time.now.strftime("It's %l:%M%P on %A, %B %e")%></h1>
+					
+					
+			</div>
+
+			<div class="container sixteen columns" id="list-children">
+
+				<% @family.children.each do |child| %>
+
+					<div class="child">
+						<div class="child_name">
+							<h4><%= child.nickname %></h4>
+						</div>
+						<div class="child-photo">
+							<h4><p><%= image_tag(child.headshot_image_url)%></p></h4>
+						</div>
+						<div class="update-button">
+							<p>Update</p>
+						</div>
+						<div class="child-view-button">
+							<p>childView</p>
+						</div>
+					</div>
+
+				<% end %>
+
+			</div>
+
+			<div class="sixteen columns">
+				
+			<h4>Caregivers</h4>
+
+			<div id="add-caregiver">
+				<h3>+</h3>
+			</div>
+				<% @family.caregivers.each do |caregiver| %>
+
+					<div class="caregiver-pic">
+						<!-- <p><%#= image_tag("silloeutte.png") %></p> -->
+						<p><%= image_tag(caregiver.headshot_image_url)%></p>
+						
+						<p><%= caregiver.nickname %></p>
+					</div>
+
+				<% end %>
+			</div>
+
+	</body>
+
+</html>

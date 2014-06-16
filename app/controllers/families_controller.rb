@@ -1,10 +1,10 @@
 # require "colorize"
 
-class FamilyController < ApplicationController
+class FamiliesController < ApplicationController
 
 	
 	def index
-		render html: "#FIX. user should never see this. This route should be deleted when done. Try the show page at /family/ANYNUMBERHERE"
+		render html: "#FIX. This is Families#INDEX. The user should never see this. This route should be deleted when done. Try the show page at /families/ANYNUMBERHERE"
 	end
 
 
@@ -24,9 +24,8 @@ class FamilyController < ApplicationController
 			@users = @family.users
 
 		@payload = build_payload(); #20.times {puts ""}; ap @payload
-		render json: @payload
+		# render json: @payload
 	end
-
 
 
 	def edit

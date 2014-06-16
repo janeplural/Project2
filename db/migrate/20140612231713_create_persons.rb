@@ -11,7 +11,7 @@ class CreatePersons < ActiveRecord::Migration
       t.string :last_name      
       t.text :description
 
-      t.string :headshot_used
+      t.string :headshot_type
       t.string :facebook_username
       t.string :uploaded_headshot_url
 

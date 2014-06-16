@@ -40,3 +40,44 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'pry-rails'
 gem 'awesome_print'
+gem 'httparty'
+
+
+
+
+
+
+
+
+gem 'annotate', ">=2.6.0"
+# == Annotate (aka AnnotateModels)
+# see https://github.com/ctran/annotate_models/blob/develop/README.rdoc for details
+
+# Add a comment summarizing the current schema to the top or bottom of each of
+# your...
+
+# - ActiveRecord models
+# - Fixture files
+# - Tests and Specs
+# - Object Daddy exemplars
+# - Machinist blueprints
+# - Fabrication fabricators
+# - Thoughtbot's factory_girl factories, i.e. the (spec|test)/factories/<model>_factory.rb files
+# - routes.rb file (for Rails projects)
+
+# === Usage in Rails
+
+# To annotate all your models, tests, fixtures, and factories:
+
+#     cd /path/to/app
+#     annotate
+
+# To annotate routes.rb:
+
+#     annotate --routes
+
+# To remove routes.rb annotations:
+
+#     annotate --routes --delete
+
+

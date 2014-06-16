@@ -1,5 +1,3 @@
-<!-- <p id="notice"><%#= notice %></p> -->
-
 <!DOCTYPE html>
 
 <head>
@@ -35,42 +33,18 @@
 			</div>
 		</div>
 
-		#"FIX - div ID should be 'childcare/childcares (a class of calendar entry), not 'caregiver/caregivers' (a class of person)."
-		<div class="seven columns" id="caregiver-schedule"> 
-			<!-- #CHILDCARE SCHEDULE</br></br> -->
-			<% @childcares.each do |childcare| %>
-				<div class="caregiver-entry">
-					#CHILDCARE ENTRY</br>
-					<%= childcare.name %>, id: <%= childcare.id %></br>
-					</br>
-						CaregiverCount: 
-						<%= childcare.caregivers.count %>
-						#FIX - JR why isn't this working? It should be 2 or 3, not 0!
-						<%# childcare.caregivers.each do |caregiver| %> 
-							<!-- #CAREGIVER -->
-							<!-- <div class="caregiver">
-								#CAREGIVER ENTRY
-								<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">	</<br>
-								
-							</div> -->
-						<%# end %>
-					</br>
-					</br>
-
-				</div>
-			<% end %>
-			
+		<div class="seven columns" id="caregiver-schedule">
 	
-			<!-- <div class="caregiver-entry">
+			<div class="caregiver-entry">
 				<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">		
 
-				<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg"> -->
+				<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">
 
 <!--  original code to make placeholders  -->
 <!-- 				<div class="caregiver-pic">
 					<h4>User Image HERE</h4>
 				</div> -->
-			<!-- </div>
+			</div>
 
 			<div class="caregiver-entry">
 				<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">
@@ -79,7 +53,7 @@
 
 				<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">
 
-			</div> -->
+			</div>
 
 		</div>
 
@@ -91,28 +65,12 @@
 			</ul>
 		</div>
 
-
-
-
 		<div class="seven columns" id="activity-schedule">
-			<!-- #ACTIVITY SCHEDULE</br></br> -->
-			<% @appointments.each do |appointment| %>
-				<div class="activity-entry">
-				<!-- #ACTIVITY ENTRY -->
-					<img class="scale-with-grid activity-image" src="<%= appointment.image_url %>">
-					<div class="image-text">
-					<%= appointment.name %></br>
-					#FIX This class should probably be "appointment-name-text", not "image text".</br>
-						<p><%= appointment.description %></p>
-					</div>
-				<!-- </br>
-				</br> -->
-			<% end %>
-		<!-- 	<div class="activity-entry">
+			<div class="activity-entry">
 				<img class="scale-with-grid activity-image" src="http://www.sierrapreschool.com/Public/Images/homeSlide/children-learning-geography.jpg">
 				<div class="image-text">
 					Preschool
-				
+				</div>
 			</div>
 
 			<div class="empty-entry"></div>
@@ -122,7 +80,7 @@
 				<div class="image-text">
 					Swim Class
 				</div>
-			</div> -->
+			</div>
 
 <!-- 			<div class="activity-entry">
 				<h4>Activity Image HERE</h4>

@@ -3,7 +3,9 @@
 
 
 
-
+def delete_join_tables()
+	Participation.delete_all
+end 
 
 def refresh_family()
 	Family.delete_all
@@ -35,12 +37,12 @@ def refresh_persons()
 			})
 
 
-		mom = $seed_family.persons.create({
+		$mom = $seed_family.persons.create({
 			nickname: "Mom",
 			first_name: "Karina",
 			last_name: "Linch",
 			uploaded_headshot_url: nil,
-		    facebook_username: 'mslinch',
+		    facebook_username: 'karinalinch',
 		    notes_on_availability: "Works from home Tuesd and Thurs (with support). Available Friday.",
 		    description: 'mama is the best.',
 
@@ -51,7 +53,7 @@ def refresh_persons()
 
 	## CAREGIVER
 
-		grandma = $seed_family.persons.create({
+		$grandma = $seed_family.persons.create({
 			nickname: "Grandma Janet",
 			first_name: "Janet",
 			last_name: "Randall",
@@ -65,7 +67,7 @@ def refresh_persons()
 			})
 
 
-		natt = $seed_family.persons.create({
+		$natt = $seed_family.persons.create({
 			nickname: "Natt",
 			first_name: "Piyapath",
 			last_name: "Longhamphia",
@@ -80,12 +82,12 @@ def refresh_persons()
 
 	## CHILD
 
-		sam = $seed_family.persons.create({
+		$sam = $seed_family.persons.create({
 			nickname: "SammyDoo",
 			first_name: "Sam",
 			last_name: "Randall",
 			uploaded_headshot_url: nil,
-		    facebook_username: 'samrandall',
+		    facebook_username: nil,
 		    notes_on_availability: "ready to party at 3AM",
 		    description: "the drooler",
 
@@ -98,7 +100,7 @@ def refresh_persons()
 			first_name: "Max",
 			last_name: "Randall",
 			uploaded_headshot_url: nil,
-		    facebook_username: 'maxrandall',
+		    facebook_username: 'MaxwellRandall',
 		    notes_on_availability: "always availble all the time",
 		    description: "gobbler of mac'n'cheese",
 
@@ -115,32 +117,46 @@ def refresh_calendar_entries()
 
 	require 'time'
 
-	## VIA CHILD
-		## CHILDCARE ()
+	CalendarEntry.delete_all
 
-			$max.calendar_entries.create({
+	## VIA CHILD
+		## CHILDCARE
+
+			$childcare1 = $max.calendar_entries.create({
 				start_datetime: Time.parse('3am'),
 				end_datetime: Time.parse('7:30am'),
 				name: 'dad home',
 				image_url: nil,
 				family_id: nil,
-				desription: 'dad home',
-
-				type: 'Appointment'
-				
+				description: 'dad home - made via Max',
+				type: 'Childcare'
 				})
+
+				$childcare1.participations.create({
+					person_id: $dad.id
+					})
 	    	
-			$max.calendar_entries.create({
+			$childcare2 = $max.calendar_entries.create({
 				start_datetime: Time.parse('8am'),
 				end_datetime: Time.parse('4pm'),
 				name: 'grandma watches me',
 				image_url: nil,
 				family_id: nil,
-				desription: 'grandma watches me',
+				description: 'grandma watches me',
 
-				type: 'Appointment'
+				type: 'Childcare'
 				
 				})
+
+				$childcare2.participations.create({
+					person_id: $dad.id
+					})
+
+				$childcare2.participations.create({
+					person_id: $grandma.id
+					})
+
+
 
 
 		## APPOINTMENTS
@@ -149,11 +165,11 @@ def refresh_calendar_entries()
 				start_datetime: Time.parse('8:45am'),
 		    	end_datetime: Time.parse('12:30pm'),
 		    	name: 'preschool',
-		    	image_url: nil,
+		    	image_url: "http://www.sierrapreschool.com/Public/Images/homeSlide/children-learning-geography.jpg",
 		    	family_id: nil,
-		    	desription: 'I get to see my friends at school',
+		    	description: 'I get to see my friends at school',
 
-		    	type: 'Childcare'
+		    	type: 'Appointment'
 
 		    	})
 
@@ -161,12 +177,12 @@ def refresh_calendar_entries()
 				start_datetime: Time.parse('3pm'),
 		    	end_datetime: Time.parse('3:45pm'),
 		    	name: 'swim class',
-		    	image_url: nil,
+		    	image_url: "http://www.lakejackson-tx.gov/images/pages/N242/swim%20lesson2.jpg",
 		    	family_id: nil,
-		    	desription: 'I learn to swim',
+		    	description: 'I learn to swim',
 		    	
 
-				type: 'Childcare'
+				type: 'Appointment'
 
 				})
 
@@ -179,7 +195,7 @@ def refresh_calendar_entries()
 		    	name: 'breakfast',
 		    	image_url: nil,
 		    	family_id: nil,
-		    	desription: 'yum',
+		    	description: 'yum',
 
 		    	type: 'Happening'
 		    	})
@@ -190,7 +206,7 @@ def refresh_calendar_entries()
 		    	name: 'lunch at school',
 		    	image_url: nil,
 		    	family_id: nil,
-		    	desription: 'nom nom nom',
+		    	description: 'nom nom nom',
 
 		    	type: 'Happening'
 
@@ -202,24 +218,24 @@ def refresh_calendar_entries()
 		    	name: 'dinner at home',
 		    	image_url: nil,
 		    	family_id: nil,
-		    	desription: 'my favorite',
+		    	description: 'my favorite',
 
 		    	type: 'Happening'
 		    	})
 
 
-	## VIA CAREGIVER
-		$dad.calendar_entries.create({
-		start_datetime: Time.parse('2am'),
-		end_datetime: Time.parse('8am'),
-		name: 'dad home',
-		image_url: nil,
-		family_id: nil,
-		desription: 'dad home',
+	# ## VIA CAREGIVER
+	# 	$dad.calendar_entries.create({
+	# 	start_datetime: Time.parse('2am'),
+	# 	end_datetime: Time.parse('8am'),
+	# 	name: 'dad home',
+	# 	image_url: nil,
+	# 	family_id: nil,
+	# 	description: 'dad home - made via dad',
 
-		type: 'Appointment'
+	# 	type: 'Childcare'
 		
-		})
+	# 	})
 
 
 end
@@ -232,6 +248,8 @@ end
 ## CONFIG
 
 refresh_family()
+
+delete_join_tables()
 
 refresh_persons()
 	# refresh_children()		#doesn't work yet

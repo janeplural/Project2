@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: families
+#
+#  id         :integer          not null, primary key
+#  nickname   :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Family < ActiveRecord::Base
 
 	has_many :persons

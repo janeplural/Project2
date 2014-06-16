@@ -1,9 +1,38 @@
+# == Route Map (Updated 2014-06-15 23:23)
+#
+#            Prefix Verb   URI Pattern                                      Controller#Action
+#              root GET    /                                                families#index
+#   family_children GET    /families/:family_id/children(.:format)          children#index
+#                   POST   /families/:family_id/children(.:format)          children#create
+#  new_family_child GET    /families/:family_id/children/new(.:format)      children#new
+# edit_family_child GET    /families/:family_id/children/:id/edit(.:format) children#edit
+#      family_child GET    /families/:family_id/children/:id(.:format)      children#show
+#                   PATCH  /families/:family_id/children/:id(.:format)      children#update
+#                   PUT    /families/:family_id/children/:id(.:format)      children#update
+#                   DELETE /families/:family_id/children/:id(.:format)      children#destroy
+#          families GET    /families(.:format)                              families#index
+#                   POST   /families(.:format)                              families#create
+#        new_family GET    /families/new(.:format)                          families#new
+#       edit_family GET    /families/:id/edit(.:format)                     families#edit
+#            family GET    /families/:id(.:format)                          families#show
+#                   PATCH  /families/:id(.:format)                          families#update
+#                   PUT    /families/:id(.:format)                          families#update
+#                   DELETE /families/:id(.:format)                          families#destroy
+#
+
+
+#To update the chart above, execute $annotate --routes'
+
+
+
+
+
 Rails.application.routes.draw do
 
   # resources :family
-  root to: 'children#index'
+  root to: 'families#index'
 
-  resources :family do
+  resources :families do
     resources :children
   end
   

@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: participations
+#
+#  id                :integer          not null, primary key
+#  person_id         :integer
+#  calendar_entry_id :integer
+#  created_at        :datetime
+#  updated_at        :datetime
+#
+
 class Participation < ActiveRecord::Base
 
 	belongs_to :person
