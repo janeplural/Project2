@@ -1,6 +1,10 @@
+// JAVASCRIPT
+// LOCATION OF TIMER: % = (time - start_time[7]) / (end_time[9] - time)
+// MORNING: % = (12 - start_time[7]) / (end_time[9]) + (12 - start_time[7])
+// AFTERNOON: % = (5) / (end_time[9]) + (12 - start_time[7])
+// NIGHT: % = (end_time[9] - 5) / (end_time[9]) + (12 - start_time[7])
 
-// % = (time - start_time) / (end_time - time)
-
+// TO DO: DYNAMIC CODE FOR CAREGIVER DIV
 
 
 
@@ -604,3 +608,14 @@ p {
 }
 
 }
+
+
+# FIX THIS \\
+
+# person
+
+# caregiver
+
+# children
+
+# starttime

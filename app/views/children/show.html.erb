@@ -31,27 +31,29 @@
 
 			<div class="navigation" id="next-button">
 				<!-- <a id="next" href src="#">Next</a> -->
-				<div id="triangle-right"></div>				
+				<div id="triangle-right"></div>
 			</div>
 		</div>
 
-		#"FIX - div ID should be 'childcare/childcares (a class of calendar entry), not 'caregiver/caregivers' (a class of person)."
-		<div class="seven columns" id="caregiver-schedule"> 
+
+	<div id="calendar-entry-container">
+		<div class="seven columns" id="caregiver-schedule">
 			<!-- #CHILDCARE SCHEDULE</br></br> -->
+		#"FIX - div ID should be 'childcare/childcares (a class of calendar entry), not 'caregiver/caregivers' (a class of person)."
 			<% @childcares.each do |childcare| %>
 				<div class="caregiver-entry">
 					#CHILDCARE ENTRY</br>
 					<%= childcare.name %>, id: <%= childcare.id %></br>
 					</br>
-						CaregiverCount: 
+						CaregiverCount:
 						<%= childcare.caregivers.count %>
 						#FIX - JR why isn't this working? It should be 2 or 3, not 0!
-						<%# childcare.caregivers.each do |caregiver| %> 
+						<%# childcare.caregivers.each do |caregiver| %>
 							<!-- #CAREGIVER -->
 							<!-- <div class="caregiver">
 								#CAREGIVER ENTRY
 								<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">	</<br>
-								
+
 							</div> -->
 						<%# end %>
 					</br>
@@ -59,10 +61,10 @@
 
 				</div>
 			<% end %>
-			
-	
+
+
 			<!-- <div class="caregiver-entry">
-				<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">		
+				<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">
 
 				<img class="caregiver-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg"> -->
 
@@ -83,11 +85,12 @@
 
 		</div>
 
-		<div class="two columns" id="timeline-box">
+		<div class="two columns" id="timeline-container">
 			<h5>Timeline</h5>
 			<!-- <div id="burst-12"></div> -->
-			<ul id="timeline">
-				<li class="time-tick"></li> 
+			<div id="timeline-box">
+				<p> I am a timeline box </p>
+			</div>
 			</ul>
 		</div>
 
@@ -112,7 +115,7 @@
 				<img class="scale-with-grid activity-image" src="http://www.sierrapreschool.com/Public/Images/homeSlide/children-learning-geography.jpg">
 				<div class="image-text">
 					Preschool
-				
+
 			</div>
 
 			<div class="empty-entry"></div>
@@ -131,8 +134,9 @@
 				</div>
 			</div> -->
 		</div>
-
 	</div>
+</div>
+
 
 </body>
 </html>
