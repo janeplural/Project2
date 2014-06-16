@@ -220,18 +220,18 @@ def refresh_calendar_entries()
 		    	})
 
 
-	## VIA CAREGIVER
-		$dad.calendar_entries.create({
-		start_datetime: Time.parse('2am'),
-		end_datetime: Time.parse('8am'),
-		name: 'dad home',
-		image_url: nil,
-		family_id: nil,
-		desription: 'dad home - made via dad',
+	# ## VIA CAREGIVER
+	# 	$dad.calendar_entries.create({
+	# 	start_datetime: Time.parse('2am'),
+	# 	end_datetime: Time.parse('8am'),
+	# 	name: 'dad home',
+	# 	image_url: nil,
+	# 	family_id: nil,
+	# 	desription: 'dad home - made via dad',
 
-		type: 'Childcare'
+	# 	type: 'Childcare'
 		
-		})
+	# 	})
 
 
 end
