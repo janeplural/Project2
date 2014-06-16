@@ -39,11 +39,13 @@
 		<div id="calendar-entry-container">
 
 			<!-- This block of code is needed to kickstart rails classes into working -->
-			<% @childcares.last.persons.count %>	
-			<% @childcares.last.children.count %>	
-			<% @childcares.last.users.count %>	
-			<% @childcares.last.luddites.count %>	
-			<% @childcares.last.caregivers.count %>	
+				<!-- #FIX this shouln't be nessecary in production environment, just development environment -->
+				<!-- #FIX John should tweak rails config so that this isn't needed -->
+				<% @childcares.last.persons.count %>	
+				<% @childcares.last.children.count %>	
+				<% @childcares.last.users.count %>	
+				<% @childcares.last.luddites.count %>	
+				<% @childcares.last.caregivers.count %>	
 			<!-- This block of code is needed to kickstart rails classes into working -->
 
 
