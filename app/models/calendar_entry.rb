@@ -25,6 +25,26 @@ class CalendarEntry < ActiveRecord::Base
 					has_many :users, through: :participations
 					has_many :luddites, through: :participations
 
+
+	## MANAGING PEOPLE (VIA PARTICIPATIONS)
+	
+	# def add_people
+	# 	# you should never use this
+	# end
+
+		# def add_child
+		# end
+
+		def add_caregiver(caregiver_person_id)
+			puts "running add_caregiver for"
+			puts "... calendar_entry id #{self.id}"
+			puts "... person(caregiver) id #{caregiver_person_id}"
+			self.participations.create({
+				person_id: caregiver_person_id
+				})
+		end
+
+	
 	
 	## TIME STUFF
 
