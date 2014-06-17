@@ -4,7 +4,6 @@
 <% @obj = @person %>
 
 <!-- form -->
-
 <form class="hidden" id="new-<% obj_name %>" action="/families/<%= family.id %>/<% obj_name_plural %>">
 
 	<!-- error checking (mostly from devise) -->
@@ -45,22 +44,23 @@
 
 
 	<!-- Image Selection Fields -->
-		<div class="<% obj_name %>-photo">Facebook Placeholder</div>
+		<div class="<%= obj_name %>-photo">Facebook Placeholder</div>
 			<!-- if this one is selected, headshot_type = facebook_username -->
-		<!-- <div class="<% obj_name %>-photo">LinkedIn Placeholder</div>
+		<!-- <div class="<%= obj_name %>-photo">LinkedIn Placeholder</div>
 			<!-- if this one is selected, headshot_type = linkedin_username -->
-		<!-- <div class="<% obj_name %>-photo">Other url Placeholder</div> -->
+		<!-- <div class="<%= obj_name %>-photo">Other url Placeholder</div> -->
 			<!-- if this one is selected, headshot_type = other_headshot_url --> -->
 
 
-		<div class="<% obj_name %>-photo">PAPERCLIP_PLACEHOLDER 1 </div>
+		<div class="<%= obj_name %>-photo">PAPERCLIP_PLACEHOLDER 1 </div>
 			<!-- if this one is selected, headshot_type = paperclip -->
-		<!-- <div class="<% obj_name %>-photo">PAPERCLIP_PLACEHOLDER 2</div>
+		<!-- <div class="<%= obj_name %>-photo">PAPERCLIP_PLACEHOLDER 2</div>
 			<!-- if this one is selected, headshot_type = paperclip -->
-		<!-- <div class="<% obj_name %>-photo">PAPERCLIP_PLACEHOLDER 3 </div> -->
+		<!-- <div class="<%= obj_name %>-photo">PAPERCLIP_PLACEHOLDER 3 </div> -->
 			<!-- if this one is selected, headshot_type = paperclip -->
 
 		
-
+	<!-- Button -->
 	<input type="submit">
+
 </form>

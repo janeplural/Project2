@@ -1,52 +1,48 @@
-<%= form_for([@family, @caregiver], html: {class: "hidden"}) do |f| %>
-  <% if @caregiver.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@caregiver.errors.count, "error") %> prohibited this caregiver from being saved:</h2>
-      <ul>
-      <% @caregiver.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<!-- config -->
+<% obj_name = 'caregiver' %>
+<% obj_name_plural = 'caregivers' %>
+<% @obj = @caregiver %>
 
-  <div class="field">
-    <%= f.label :nickname %><br>
-    <%= f.text_field :nickname %>
+<!-- form -->
+<form class="hidden" id="new-<%= obj_name %>" action="/families/<%= family.id %>/<%= obj_name_plural %>">
 
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+	<!-- error checking (mostly from devise) -->
+	<!-- #FIX - this should be DRYed out -->
+	<!-- <%# if @obj.errors.any? %>
+		<div id="error_explanation">
+			<h2><%#= pluralize(@obj.errors.count, "error") %> prohibited this <%= obj_name %> from being saved:</h2>
+			<ul>
+				<%# @obj.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<%# end %>
+			</ul>
+		</div>
+	<%# end %> -->
 
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
 
-    <%#= f.label :description %><!-- <br> -->
-    <%#= f.text_field :description %>
 
-    <%#= f.label :headshot_type %><!-- <br> -->
-    <%#= f.text_field :headshot_type %>
 
-    <%= f.radio_button :headshot_type, 'facebook_username', :checked => true %> 
-    <%= label :headshot_type_facebook_username, 'Use facebook profile picture' %>
-    <%= f.radio_button :headshot_type, 'paper_clip_upload' %>
-    <%= label :headshot_type_paperclip, 'Use Paperclip Upload' %>
-    <%= f.radio_button :headshot_type, 'other_url' %>
-    <%= label :headshot_type_other_url, 'Use other image url' %>
-      <br>
+<!-- Text Fields -->
 
-    <%= f.label :facebook_username %><br>
-    <%= f.text_field :facebook_username %>
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-    <!-- #FIX_NELSON. PAPERCLIP STUFF GOES HERE -->
-    <%= f.label :paperclip_headshot_url %><br>
-    <%= f.text_field :paperclip_headshot_url %>
+		<label for="nickname">Nickname</label></br>
+			<input type="text" name="nickname">
 
-    <%= f.label :other_headshot_url %><br>
-    <%= f.text_field :other_headshot_url %>
+		<label for="first_name">first_name</label></br>
+			<input type="text" name="first_name">
 
-    
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+		<label for="last_name">last_name</label></br>
+			<input type="text" name="last_name">
+
+		<label for="email">email</label></br>
+			<input type="text" name="email">
+
+		<label for="notes_on_availability">notes_on_availability</label></br>
+			<input type="text" name="notes_on_availability">
+
+
+	<!-- Button -->
+	<input type="submit">
+	
+</form>
