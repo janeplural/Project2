@@ -49,8 +49,12 @@ Rails.application.routes.draw do
   devise_for :users
   
   resources :families do
-    resources :children
     resources :caregivers
+    resources :persons
+    resources :children do
+      resources :appointments
+      resources :childcares
+    end
   end
   
   get '/family/:id', to: 'family#show', as: :user_root_path

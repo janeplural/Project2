@@ -27,7 +27,7 @@
 		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
 		<label for="nickname">Nickname</label></br>
-			<input type="text" name="nickname">
+			<input type="text" name="nickname" value="dynamic">
 
 		<label for="facebook_username">facebook username</label></br>
 			<input type="text" name="facebook_username">
@@ -44,21 +44,21 @@
 
 
 	<!-- Image Selection Fields -->
-		<div class="<%= obj_name %>-photo">Facebook Placeholder</div>
+		<div class="<%= obj_name %>-photo">Facebook Img Placeholder</div>
 			<!-- if this one is selected, headshot_type = facebook_username -->
-		<!-- <div class="<%= obj_name %>-photo">LinkedIn Placeholder</div>
+		<!-- <div class="<%#= obj_name %>-photo">LinkedIn Placeholder</div>
 			<!-- if this one is selected, headshot_type = linkedin_username -->
-		<!-- <div class="<%= obj_name %>-photo">Other url Placeholder</div> -->
-			<!-- if this one is selected, headshot_type = other_headshot_url --> -->
+		<!-- <div class="<%#= obj_name %>-photo">Other url Placeholder</div> -->
+			<!-- if this one is selected, headshot_type = other_headshot_url --> 
 
 
 
-		<div class="<%= obj_name %>-photo">PAPERCLIP_PLACEHOLDER 1 </div>
+		<div class="<%= obj_name %>-photo">PAPERCLIP_PLACEHOLDER Img 1</div>
 
 			<!-- if this one is selected, headshot_type = paperclip -->
-		<!-- <div class="<%= obj_name %>-photo">PAPERCLIP_PLACEHOLDER 2</div>
+		<!-- <div class="<%#= obj_name %>-photo">PAPERCLIP_PLACEHOLDER 2</div>
 			<!-- if this one is selected, headshot_type = paperclip -->
-		<!-- <div class="<%= obj_name %>-photo">PAPERCLIP_PLACEHOLDER 3 </div> -->
+		<!-- <div class="<%#= obj_name %>-photo">PAPERCLIP_PLACEHOLDER 3 </div> -->
 			<!-- if this one is selected, headshot_type = paperclip -->
 
 		
