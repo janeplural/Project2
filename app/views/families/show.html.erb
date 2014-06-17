@@ -58,7 +58,17 @@
 
 
 
-<%= render partial: "children/form" %>
+<%#= render partial: "children/form" %>
+<form class="hidden" id="new-child">
+	<label for="nickname">Nickname</label></br>
+	<input type="text" name="nickname">
+	<label for="facebook_username">facebook username</label></br>
+	<input type="text" name="facebook_username">
+	<input type="submit">
+</form>
+
+
+
 
 
 			</div>

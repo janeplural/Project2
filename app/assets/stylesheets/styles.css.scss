@@ -212,7 +212,7 @@ border-top-right-radius: 10px;
 	margin: 1% 2%;
 }
 
-/* ======= Welcome Home ======= */
+/* ======= Splash Page ======= */
 
 #logout{
 	margin-top: 1%;
@@ -293,12 +293,16 @@ border-top-right-radius: 10px;
 
 
 /* worked with pj on form */
-#new_child {
+#new-child {
+	height: 190px;
+	width: 220px;
 	background: hotpink;
 	border-radius: 10px;
-	position: absolute;
-	top: 300px;
-	left: 500px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -95px;
+	margin-left: -110px;
 	padding: 20px;
 }
 

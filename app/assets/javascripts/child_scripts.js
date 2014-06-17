@@ -1,34 +1,33 @@
 $(document).ready(function() {
 
+// append id name to reflect link or button type
+  $("#add-child").on("click", function(e){
+  	e.preventDefault();
+  	$("#new-child").removeClass("hidden").addClass("block");
+  });
 
-    var $childrenList = $("#list-children");
-
-    $("#add-child").click(function() {
-        var child = {
-          name: $("#new-child-name").val()
-        };
-
-        var userTemplate = _.template($("#childTemplate").text());
-
-        var $childList = $("#childList");
-        $childList.append(userTemplate);
-
-        // $.ajax({
-        //     url: "/families/"+id,
-        //     type: "POST",
-        //     dataType: "json",
-        //     data: user
-        // }).done(function(data) {
-        //     if (data.message == "FAILURE") {
-        //         alert("OH NO, FAILURE! Removing element now.");
-        //         $userList.children().last().remove();
-        //     }
-        // });
+  $("#new-child").on("submit", function(e){
+    e.preventDefault();
+    console.log("clicked add child button");
+    var $newChildNickname = $('#new-child input[name="nickname"]');
+    var $newChildFacebook = $('#new-child input[name="facebook_username"]');
+    console.log($newChildNickname.val());
+    console.log($newChildFacebook.val());
+    var newChild = ({
+      nickname: $newChildNickname.val(),
+      facebook_username: $newChildFacebook.val()
     });
+    console.log(newChild);
 
-    $("#add-child").on("click", function(e){
-    	e.preventDefault();
-    	$("#new_child").removeClass("hidden").addClass("block");
+// debugger;
+    $.ajax({
+      url: "/families/"+ id +"/children",
+      type: "POST",
+      dataType: "json",
+      data: newChild
+    }).done(function(data){
+      console.log(data);
     });
+  });
 
 });

@@ -30,6 +30,17 @@ class ChildrenController < ApplicationController
   end
 
 
+  def create
+    if params["facebook_username"]
+      Child.create({
+        :nickname => params["nickname"],
+        :facebook_username => params["facebook_username"]
+        })
+    else
+      Child.create({
+        :nickname => params["nickname"]
+      })
+    end
 
 
 end
