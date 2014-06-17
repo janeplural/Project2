@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+
+// New Child Form ========================
 // append id name to reflect link or button type
   $("#add-child").on("click", function(e){
   	e.preventDefault();
@@ -30,5 +32,15 @@ $(document).ready(function() {
       console.log(data);
     });
   });
+
+// New Caregiver Form =======================
+// append id name to reflect link or button type
+  $("#add-caregiver a").on("click", function(e){
+    e.preventDefault();
+    // $("#new-child").removeClass("hidden").addClass("block");
+    console.log("clicked add caregiver button");
+  });
+
+
 
 });

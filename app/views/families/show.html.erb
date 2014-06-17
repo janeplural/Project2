@@ -58,6 +58,10 @@
 
 
 
+
+
+
+
 <%#= render partial: "children/form" %>
 <form class="hidden" id="new-child">
 	<label for="nickname">Nickname</label></br>
@@ -66,6 +70,13 @@
 	<input type="text" name="facebook_username">
 	<input type="submit">
 </form>
+
+
+
+<!-- #FIX put in a more sensible place -->
+
+<%= render partial: "children/form" %>
+
 
 
 
@@ -79,8 +90,8 @@
 
 				<div class="caregiver-div">
 					<div id="add-caregiver">
-<!-- make this a link_to tag with image tag when icon is ready -->
-						<a href="#"><span style="font-size:75px">+</span></a>
+<!-- #FIX make this a link_to tag with image tag when icon is ready -->
+						<a href=""><span style="font-size:75px">+</span></a>
 					</div>
 					<p>Add Caregiver</p>
 				</div>
