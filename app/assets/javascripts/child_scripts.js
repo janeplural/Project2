@@ -21,10 +21,11 @@ $(document).ready(function() {
 
 // debugger;
     $.ajax({
-      url: "/families/"+ id +"/children",
+      url: window.location.pathname +"/children",
       type: "POST",
       dataType: "json",
-      data: newChild
+      data: newChild,
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
     }).done(function(data){
       console.log(data);
     });

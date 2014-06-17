@@ -54,11 +54,11 @@ ActiveRecord::Schema.define(version: 20140617013500) do
     t.string   "nickname"
     t.string   "first_name"
     t.string   "last_name"
+    t.text     "notes_on_availability"
     t.text     "description"
     t.string   "headshot_type"
     t.string   "facebook_username"
     t.string   "uploaded_headshot_url"
-    t.text     "notes_on_availability"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                  default: "", null: false
