@@ -37,7 +37,7 @@ $(document).ready(function() {
 // append id name to reflect link or button type
   $("#add-caregiver a").on("click", function(e){
     e.preventDefault();
-    // $("#new-child").removeClass("hidden").addClass("block");
+    $("#new-caregiver").removeClass("hidden").addClass("block");
     console.log("clicked add caregiver button");
   });
 
