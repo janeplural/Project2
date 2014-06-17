@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(version: 20140617013500) do
     t.string   "last_sign_in_ip"
   end
 
-  add_index "persons", ["email"], name: "index_persons_on_email", unique: true, using: :btree
   add_index "persons", ["reset_password_token"], name: "index_persons_on_reset_password_token", unique: true, using: :btree
 
 end

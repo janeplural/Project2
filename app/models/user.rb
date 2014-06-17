@@ -31,7 +31,6 @@
 #
 # Indexes
 #
-#  index_persons_on_email                 (email) UNIQUE
 #  index_persons_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
