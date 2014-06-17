@@ -1,4 +1,4 @@
-<form class="hidden" id="new-child" action="/families/<%= family.id %>/children">
+<form class="hidden edit-form" id="new-child" action="/families/<%= family.id %>/children">
   <% if @child.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@child.errors.count, "error") %> prohibited this child from being saved:</h2>
@@ -10,15 +10,23 @@
     </div>
   <% end %>
 
+	<div class="child-photo-dummy"><a href="">Add/Edit Photo</a></div>
+
+
+	<!-- <div>
+		<label for="facebook_username">facebook username</label></br>
+		<input type="text" name="facebook_username">
+
+		<div class="<%# obj_name %>-photo">Facebook Placeholder</div>
+
+		<div class="<%# obj_name %>-photo">PAPERCLIP_PLACEHOLDER 1 </div>
+	</div> -->
+
 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-	<div class="child">
-		<div class="child-photo">Placeholder</div>
-	</div>
-
   <label for="nickname">Nickname</label></br>
   <input type="text" name="nickname">
-  <label for="facebook_username">facebook username</label></br>
-  <input type="text" name="facebook_username">
   <input type="submit">
+
 </form>
+
+<%= render partial: "persons/form", locals: {family: @family} %>

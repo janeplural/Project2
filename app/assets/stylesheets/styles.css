@@ -327,3 +327,14 @@ border-top-right-radius: 10px;
 	padding: 20px;
 }
 
+.child-photo-dummy{
+	height: 100px;
+	width: 100px;
+	border: solid 3px #ED71FF;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	margin: 0 auto;
+	display: block;
+}
+
