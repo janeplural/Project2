@@ -32,7 +32,7 @@
 				<% @family.children.each do |child| %>
 
 					<div class="child">
-						<div class="child_name">
+						<div class="child-name">
 							<h4><%= child.nickname %></h4>
 						</div>
 						<div class="child-photo-div">
@@ -50,6 +50,32 @@
 					</div>
 
 				<% end %>
+<!-- add image to this -->
+					<div class="child">
+						<div class="child-photo"><a href="#" id="add-child">Add Child</a></div>
+					</div>	
+
+					<div id = "child_div">
+						<ul id = "childList">
+						</ul>
+					</div>
+
+
+
+<%= render partial: "children/form" %>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			</div>
 

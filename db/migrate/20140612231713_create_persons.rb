@@ -9,11 +9,7 @@ class CreatePersons < ActiveRecord::Migration
       t.string :nickname
       t.string :first_name
       t.string :last_name      
-      t.text :description
-
-      t.string :headshot_type
-      t.string :facebook_username
-      t.string :uploaded_headshot_url
+     
 
 
     
@@ -24,9 +20,17 @@ class CreatePersons < ActiveRecord::Migration
 
       #stuff that belongs in the caregiver class
       t.text :notes_on_availability
+      t.text :description
+
+      t.string :headshot_type
+      t.string :facebook_username
+      t.string :uploaded_headshot_url
 
 
       #stuff that belongs in the user class
+
+
+
 
       t.timestamps
     end
