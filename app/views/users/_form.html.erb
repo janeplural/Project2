@@ -1,0 +1,50 @@
+<%#= form_for([current_user], url: edit_user_registration_path, method: :patch, html: {class: "hidden"}) do |f| %>
+
+<%= form_for([current_user], url: edit_user_registration_path, method: :patch) do |f| %>
+
+  <% if current_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(current_user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% current_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nickname %><br>
+    <%= f.text_field :nickname %>
+
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+
+    <%#= f.label :description %><!-- <br> -->
+    <%#= f.text_field :description %>
+
+    <%#= f.label :headshot_type %><!-- <br> -->
+    <%#= f.text_field :headshot_type %>
+
+    <%= f.radio_button :headshot_type, 'facebook_username', :checked => true %> 
+    <%= label :headshot_type_facebook_username, 'use my facebook profile picture' %>
+    <%= f.radio_button :headshot_type, 'paper_clip_upload' %>
+    <%= label :headshot_type_paperclip, 'Paperclip Upload' %>
+
+    <%= f.label :facebook_username %><br>
+    <%= f.text_field :facebook_username %>
+
+    <!-- #FIX_NELSON. PAPERCLIP STUFF GOES HERE -->
+    <%= f.label :uploaded_headshot_url %><br>
+    <%= f.text_field :uploaded_headshot_url %>
+
+    
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -60,50 +60,62 @@
 						</ul>
 					</div>
 
+			</div>
+
 
 
 <%= render partial: "children/form" %>
 
+<!-- FIX - shoudn't these partials go at the top or bottom? -->
+
+<%#= render partial: "families/form" %>
+
+<%#= render partial: "users/form" %>
 
 
 
 
-
-
-
-
-
-
-
-
-
-			</div>
 
 			<div class="sixteen columns">
-				
 				<h4>Caregivers</h4>
-
 				<div class="caregiver-div">
 					<div id="add-caregiver">
-<!-- make this a link_to tag with image tag when icon is ready -->
+					<!--#FIX make this a link_to tag with image tag when icon is ready -->
 						<a href="#"><span style="font-size:75px">+</span></a>
 					</div>
 					<p>Add Caregiver</p>
 				</div>
 
-			<% @family.caregivers.each do |caregiver| %>
+				<% @family.caregivers.each do |caregiver| %>
+					<div class="caregiver-div">
+						<!-- <p><%#= image_tag("silloeutte.png") %></p> -->
+						<%= image_tag(caregiver.headshot_image_url, class: "caregiver-pic")%>		
+						<p><%= caregiver.nickname %></p>
+					</div>
+				<% end %>
 
-				<div class="caregiver-div">
-					<!-- <p><%#= image_tag("silloeutte.png") %></p> -->
-					<%= image_tag(caregiver.headshot_image_url, class: "caregiver-pic")%>
-					
-					<p><%= caregiver.nickname %></p>
-				</div>
-
-			<% end %>
-				</div>
-				
 			</div>
+			
+
+
+
+
+			<div class="sixteen columns" id="edit_user">
+				<!-- #FIX ID NAME -->
+				
+				<%#= link_to("edit self", current_user)%>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>this should be small and maybe accordion-ed</p>
+				<%= render partial: "users/form" %>
+
+			</div>
+
+
+
+		</div>
 
 	</body>
 
