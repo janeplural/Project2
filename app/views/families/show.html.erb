@@ -10,9 +10,13 @@
 			<div class="sixteen columns">
 				<img class="scale-with-grid user-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">
 
-				<p>Welcome, Username#FIX should be current user after auth is done</p>
+				<p>Welcome, 
+					<%= current_user.first_name || current_user.email %>
+				</p>
 
 				<a id="logout" href="#">Logout</a>
+				<%= link_to "Log Out!", destroy_user_session_path, method: :delete  %>
+				#FIX_JANE - id should be on the div, the the a-link
 			</div>
 		</div>
 
@@ -22,6 +26,8 @@
 				<h1>Our Day</h1>
 				<h2><%=Time.now.strftime("It's %l:%M%P on %A, %B %e")%></h2>
 			</div>
+
+
 
 			<div class="sixteen columns" id="list-children">
 
@@ -56,8 +62,12 @@
 						</ul>
 					</div>
 
+<<<<<<< HEAD
 
 
+=======
+			</div>
+>>>>>>> family_edit
 
 
 
@@ -71,44 +81,65 @@
 	<input type="submit">
 </form>
 
-
-
-<!-- #FIX put in a more sensible place -->
+<!-- FIX - shoudn't these partials go at the top or bottom? -->
 
 <%= render partial: "children/form" %>
 
 
+<!-- #FIX put in a more sensible place -->
+
+<%#= render partial: "families/form" %>
+
+<%#= render partial: "users/form" %>
+
+
+<%#= render partial: "caregivers/form" %> 
 
 
 
 
-			</div>
+
 
 			<div class="sixteen columns">
-				
 				<h4>Caregivers</h4>
-
 				<div class="caregiver-div">
 					<div id="add-caregiver">
-<!-- #FIX make this a link_to tag with image tag when icon is ready -->
-						<a href=""><span style="font-size:75px">+</span></a>
+
+
+					<!--#FIX make this a link_to tag with image tag when icon is ready -->
+						<a href="#"><span style="font-size:75px">+</span></a>
+
 					</div>
 					<p>Add Caregiver</p>
 				</div>
 
-			<% @family.caregivers.each do |caregiver| %>
+				<% @family.caregivers.each do |caregiver| %>
+					<div class="caregiver-div">
+						<!-- <p><%#= image_tag("silloeutte.png") %></p> -->
+						<%= image_tag(caregiver.headshot_image_url, class: "caregiver-pic")%>		
+						<p><%= caregiver.nickname %></p>
+					</div>
+				<% end %>
 
-				<div class="caregiver-div">
-					<!-- <p><%#= image_tag("silloeutte.png") %></p> -->
-					<%= image_tag(caregiver.headshot_image_url, class: "caregiver-pic")%>
-					
-					<p><%= caregiver.nickname %></p>
-				</div>
-
-			<% end %>
-				</div>
-				
 			</div>
+			
+
+
+
+
+			<div class="sixteen columns" id="edit_user">
+				<!-- #FIX ID NAME -->
+				
+				<%#= link_to("edit self", current_user)%>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>this should be small and maybe accordioned</p>
+				<%= render partial: "users/form" %> 
+				<!-- If you don't want this to show up, add the 'hidden' tag in the partial itself. -->
+
+			</div>
+
+		</div>
 
 	</body>
 

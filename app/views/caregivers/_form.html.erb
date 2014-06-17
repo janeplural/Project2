@@ -1,0 +1,52 @@
+<%= form_for([@family, @caregiver], html: {class: "hidden"}) do |f| %>
+  <% if @caregiver.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@caregiver.errors.count, "error") %> prohibited this caregiver from being saved:</h2>
+      <ul>
+      <% @caregiver.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nickname %><br>
+    <%= f.text_field :nickname %>
+
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+
+    <%#= f.label :description %><!-- <br> -->
+    <%#= f.text_field :description %>
+
+    <%#= f.label :headshot_type %><!-- <br> -->
+    <%#= f.text_field :headshot_type %>
+
+    <%= f.radio_button :headshot_type, 'facebook_username', :checked => true %> 
+    <%= label :headshot_type_facebook_username, 'Use facebook profile picture' %>
+    <%= f.radio_button :headshot_type, 'paper_clip_upload' %>
+    <%= label :headshot_type_paperclip, 'Use Paperclip Upload' %>
+    <%= f.radio_button :headshot_type, 'other_url' %>
+    <%= label :headshot_type_other_url, 'Use other image url' %>
+      <br>
+
+    <%= f.label :facebook_username %><br>
+    <%= f.text_field :facebook_username %>
+
+    <!-- #FIX_NELSON. PAPERCLIP STUFF GOES HERE -->
+    <%= f.label :paperclip_headshot_url %><br>
+    <%= f.text_field :paperclip_headshot_url %>
+
+    <%= f.label :other_headshot_url %><br>
+    <%= f.text_field :other_headshot_url %>
+
+    
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

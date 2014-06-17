@@ -4,14 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
-  helper_method :current_user
-
+	#Stuff for Devise
+	helper_method :current_user
 
 	def after_sign_in_path_for(users)
 		#After devise sign in, redirect to family#show
 		family = Family.find(current_user.family_id)
 		family_path(family)
 	end
+
+
 
 
 

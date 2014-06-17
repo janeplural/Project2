@@ -2,7 +2,6 @@
   <% if @child.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@child.errors.count, "error") %> prohibited this child from being saved:</h2>
-
       <ul>
       <% @child.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -18,6 +17,17 @@
     <%= f.label :facebook_username %><br>
     <%= f.text_field :facebook_username %>
   </div>
+
+
+  <div class="field">                       <!--  #FIX_Jane Is this the right class? -->
+    <%= f.label :day_start_time %><br>
+    <%= f.text_field :day_start_time %>     <!-- #FIX this should be jquery timepicker -->
+
+    <%= f.label :day_end_time %><br>
+    <%= f.text_field :day_end_time %>       <!-- #FIX this should be jquery timepicker -->
+
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

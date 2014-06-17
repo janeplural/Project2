@@ -11,28 +11,26 @@ class CreatePersons < ActiveRecord::Migration
       t.string :last_name      
      
 
+      #stuff that serves in the child class
+        t.datetime :day_start_time
+        t.datetime :day_end_time
 
-    
+      #stuff that serves in the caregiver class
+        t.text :notes_on_availability
+        t.text :description
 
-
-      #stuff that belongs in the child class
-
-
-      #stuff that belongs in the caregiver class
-      t.text :notes_on_availability
-      t.text :description
-
-      t.string :headshot_type
-      t.string :facebook_username
-      t.string :uploaded_headshot_url
+        t.string :headshot_type
+        t.string :facebook_username
+        t.string :paperclip_headshot_url
+        t.string :other_headshot_url
 
 
-      #stuff that belongs in the user class
-
-
+      #stuff that serves in the user class
+        #see seperate devise migration
 
 
       t.timestamps
+      
     end
   end
 end
