@@ -1,23 +1,38 @@
-# == Route Map (Updated 2014-06-15 23:23)
+# == Route Map (Updated 2014-06-16 21:52)
 #
-#            Prefix Verb   URI Pattern                                      Controller#Action
-#              root GET    /                                                families#index
-#   family_children GET    /families/:family_id/children(.:format)          children#index
-#                   POST   /families/:family_id/children(.:format)          children#create
-#  new_family_child GET    /families/:family_id/children/new(.:format)      children#new
-# edit_family_child GET    /families/:family_id/children/:id/edit(.:format) children#edit
-#      family_child GET    /families/:family_id/children/:id(.:format)      children#show
-#                   PATCH  /families/:family_id/children/:id(.:format)      children#update
-#                   PUT    /families/:family_id/children/:id(.:format)      children#update
-#                   DELETE /families/:family_id/children/:id(.:format)      children#destroy
-#          families GET    /families(.:format)                              families#index
-#                   POST   /families(.:format)                              families#create
-#        new_family GET    /families/new(.:format)                          families#new
-#       edit_family GET    /families/:id/edit(.:format)                     families#edit
-#            family GET    /families/:id(.:format)                          families#show
-#                   PATCH  /families/:id(.:format)                          families#update
-#                   PUT    /families/:id(.:format)                          families#update
-#                   DELETE /families/:id(.:format)                          families#destroy
+#                   Prefix Verb   URI Pattern                                      Controller#Action
+#         new_user_session GET    /users/sign_in(.:format)                         devise/sessions#new
+#             user_session POST   /users/sign_in(.:format)                         devise/sessions#create
+#     destroy_user_session DELETE /users/sign_out(.:format)                        devise/sessions#destroy
+#            user_password POST   /users/password(.:format)                        devise/passwords#create
+#        new_user_password GET    /users/password/new(.:format)                    devise/passwords#new
+#       edit_user_password GET    /users/password/edit(.:format)                   devise/passwords#edit
+#                          PATCH  /users/password(.:format)                        devise/passwords#update
+#                          PUT    /users/password(.:format)                        devise/passwords#update
+# cancel_user_registration GET    /users/cancel(.:format)                          devise/registrations#cancel
+#        user_registration POST   /users(.:format)                                 devise/registrations#create
+#    new_user_registration GET    /users/sign_up(.:format)                         devise/registrations#new
+#   edit_user_registration GET    /users/edit(.:format)                            devise/registrations#edit
+#                          PATCH  /users(.:format)                                 devise/registrations#update
+#                          PUT    /users(.:format)                                 devise/registrations#update
+#                          DELETE /users(.:format)                                 devise/registrations#destroy
+#                     root GET    /                                                welcome#index
+#          family_children GET    /families/:family_id/children(.:format)          children#index
+#                          POST   /families/:family_id/children(.:format)          children#create
+#         new_family_child GET    /families/:family_id/children/new(.:format)      children#new
+#        edit_family_child GET    /families/:family_id/children/:id/edit(.:format) children#edit
+#             family_child GET    /families/:family_id/children/:id(.:format)      children#show
+#                          PATCH  /families/:family_id/children/:id(.:format)      children#update
+#                          PUT    /families/:family_id/children/:id(.:format)      children#update
+#                          DELETE /families/:family_id/children/:id(.:format)      children#destroy
+#                 families GET    /families(.:format)                              families#index
+#                          POST   /families(.:format)                              families#create
+#               new_family GET    /families/new(.:format)                          families#new
+#              edit_family GET    /families/:id/edit(.:format)                     families#edit
+#                   family GET    /families/:id(.:format)                          families#show
+#                          PATCH  /families/:id(.:format)                          families#update
+#                          PUT    /families/:id(.:format)                          families#update
+#                          DELETE /families/:id(.:format)                          families#destroy
 #
 
 
@@ -29,20 +44,15 @@
 
 Rails.application.routes.draw do
 
-  # resources :family
-  root to: 'families#index'
+  root to: 'splash#index'
 
+  devise_for :users
+  
   resources :families do
     resources :children
   end
   
-
-
-
-
-
-
-
+  get '/family/:id', to: 'family#show', as: :user_root_path
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

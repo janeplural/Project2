@@ -43,6 +43,7 @@ gem 'awesome_print'
 gem 'httparty'
 
 
+gem 'devise'
 
 
 
