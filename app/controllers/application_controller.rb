@@ -3,6 +3,20 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+
+  helper_method :current_user
+
+
+	def after_sign_in_path_for(users)
+		#After devise sign in, redirect to family#show
+		family = Family.find(current_user.family_id)
+		family_path(family)
+	end
+
+
+
+
+
   def build_payload
 		payload_arr = []
 
