@@ -20,14 +20,16 @@ $(document).ready(function() {
       facebook_username: $newChildFacebook.val()
     });
     console.log(newChild);
+    $("#new-child").removeClass("block").addClass("hidden");
 
-// debugger;
     $.ajax({
-      url: window.location.pathname +"/children",
+
+      // url: window.location.pathname +"/children",
+      url:$(this).attr("action"),
       type: "POST",
       dataType: "json",
-      data: newChild,
-      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+      data: newChild
+      // beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
     }).done(function(data){
       console.log(data);
     });
