@@ -1,11 +1,13 @@
 $(document).ready(function() {
 
+// $("new-child").addClass("hidden");
 
 // New Child Form ========================
 // append id name to reflect link or button type
   $("#add-child").on("click", function(e){
   	e.preventDefault();
   	$("#new-child").removeClass("hidden").addClass("block");
+    console.log("clicked add child link");
   });
 
   $("#new-child").on("submit", function(e){
@@ -43,6 +45,12 @@ $(document).ready(function() {
     console.log("clicked add caregiver button");
   });
 
-
+// edit photo form
+// =====================
+  $(".child-photo-dummy a").on("click", function(e){
+    e.preventDefault();
+    $("#edit-person").removeClass("hidden").addClass("block");
+    console.log("clicked edit person");
+  });
 
 });

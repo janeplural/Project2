@@ -10,16 +10,23 @@
     </div>
   <% end %>
 
+	<div class="child-photo-dummy"><a href="">Add/Edit Photo</a></div>
 
-  <div>
-		<div class="child-photo-dummy">Placeholder</div>
-		<a href="">Add/Edit Photo</a>
-	</div>
 
-	<div>
-		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-	  <label for="nickname">Nickname</label></br>
-	  <input type="text" name="nickname">
-	  <input type="submit">
- </div>
+	<!-- <div>
+		<label for="facebook_username">facebook username</label></br>
+		<input type="text" name="facebook_username">
+
+		<div class="<%# obj_name %>-photo">Facebook Placeholder</div>
+
+		<div class="<%# obj_name %>-photo">PAPERCLIP_PLACEHOLDER 1 </div>
+	</div> -->
+
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="nickname">Nickname</label></br>
+  <input type="text" name="nickname">
+  <input type="submit">
+
 </form>
+
+<%= render partial: "persons/form", locals: {family: @family} %>

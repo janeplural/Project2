@@ -5,21 +5,21 @@
 
 <!-- form -->
 
-<form class="hidden" id="new-<% obj_name %>" action="/families/<%= family.id %>/<% obj_name_plural %>">
+<form class="hidden" id="edit-<%=obj_name %>" action="/families/<%= family.id %>/<%=obj_name_plural %>">
 
 	<!-- error checking (mostly from devise) -->
 	<!-- #FIX - this should be DRYed out -->
-	<% if @obj.errors.any? %>
+<!-- 	<%# if @obj.errors.any? %>
 		<div id="error_explanation">
-			<h2><%= pluralize(@obj.errors.count, "error") %> prohibited this <% obj_name %> from being saved:</h2>
+			<h2><%#= pluralize(@obj.errors.count, "error") %> prohibited this <%# obj_name %> from being saved:</h2>
 			<ul>
-				<% @obj.errors.full_messages.each do |message| %>
-					<li><%= message %></li>
-				<% end %>
+				<%# @obj.errors.full_messages.each do |message| %>
+					<li><%#= message %></li>
+				<%# end %>
 			</ul>
 		</div>
-	<% end %>
-
+	<%# end %>
+ -->
 
 	
 
@@ -45,7 +45,7 @@
 
 
 	<!-- Image Selection Fields -->
-		<div class="<% obj_name %>-photo">Facebook Placeholder</div>
+		<div class="<%=obj_name %>-photo">Facebook Placeholder</div>
 			<!-- if this one is selected, headshot_type = facebook_username -->
 		<!-- <div class="<% obj_name %>-photo">LinkedIn Placeholder</div>
 			<!-- if this one is selected, headshot_type = linkedin_username -->
@@ -53,7 +53,7 @@
 			<!-- if this one is selected, headshot_type = other_headshot_url --> -->
 
 
-		<div class="<% obj_name %>-photo">PAPERCLIP_PLACEHOLDER 1 </div>
+		<div class="<%=obj_name %>-photo">PAPERCLIP_PLACEHOLDER 1 </div>
 			<!-- if this one is selected, headshot_type = paperclip -->
 		<!-- <div class="<% obj_name %>-photo">PAPERCLIP_PLACEHOLDER 2</div>
 			<!-- if this one is selected, headshot_type = paperclip -->
