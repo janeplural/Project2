@@ -1,132 +1,103 @@
-<!-- <p id="notice"><%#= notice %></p> -->
-
-<!DOCTYPE html>
-
-
+<html>
 <head>
-	<title>Kid View</title>
+	<title>Test</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.js"></script>
+	<style type="text/css">
+		html, body {
+			height: 100%;
+		}
+		div, header {
+			border: 1px solid black;
+			border-radius: 10px;
+		}
+		header {
+			/*margin-bottom: 20px;*/
+			height: 4em;
+		}
+		.container {
+			min-width: 420px;
+			height: 96%;
+		}
+		.schedule-container {
+			padding: 0;
+			text-align: center;
+			height: calc(96% - 4em);
+			/*height: 90%;
+			margin-bottom: -4em;*/
+		}
+		.schedule {
+			display: inline-block;
+			vertical-align: top;
+			border: 2px solid green;
+			height: 99%;
+			position: re	lative;
+		}
+		.childcare, .appointment {
+			width: 35%;
+		}
+		.timeline {
+			width: 10%;
+		}
+	</style>
 </head>
 
 <body>
-
 	<div class="container">
-
-		<div class="sixteen columns header-nav">
-			<div id="header-title">
-				<h1>Our Day</h1>
-			</div>
-
-			<div class="navigation" id="preview-button">
-				<!-- <a id="previous" href src="#">Prev</a> -->
-				<div id="triangle-left">
-				</div>
-			</div>
-
-			<div id="date-time">
-				<h2>TODAY</h2>
-				<h2><%=Time.now.strftime("It's %l:%M%P on %A, %B %e")%></h2>
-			</div>
-
-			<div class="navigation" id="next-button">
-				<!-- <a id="next" href src="#">Next</a> -->
-				<div id="triangle-right"></div>
-			</div>
-
+		<header></header>
+		<div id="schedule-container" class="schedule-container">
+			<div id="childcare" class="childcare schedule"></div>
+			<div id="timeline" class="timeline schedule"></div>
+			<div id="appointment" class="appointment schedule"></div>
 		</div>
-
-
-		<div id="calendar-entry-container">
-
-			<!-- This block of code is needed to kickstart rails classes into working -->
-				<!-- #FIX this shouln't be nessecary in production environment, just development environment -->
-				<!-- #FIX John should tweak rails config so that this isn't needed -->
-			<% unless @childcares.empty? %>
-				<% @childcares.last.persons.count %>	
-				<% @childcares.last.children.count %>	
-				<% @childcares.last.users.count %>	
-				<% @childcares.last.luddites.count %>	
-				<% @childcares.last.caregivers.count %>	
-				<!-- This block of code is needed to kickstart rails classes into working -->
-
-				<div class="seven columns" id="childcares-schedule"> 
-			
-					<% @childcares.each do |childcare| %>
-						<div class="childcare-entry">
-							<%= childcare.name %>
-							<% childcare.caregivers.each do |caregiver| %>	
-								<div class="caregiver-div">
-								<%= image_tag(caregiver.headshot_image_url, class: "caregiver-pic")%>
-								<%= caregiver.nickname %>
-								</div> 	<!-- caregiver-div closer -->
-							<% end %> 	<!-- close caregivers loop -->
-						</div> 			<!-- close childcare-entry div -->
-					<% end %> 	<!-- close childcares.each loop -->
-				</div> 	<!-- close childcares-schedule column div -->
-			<% end %>
-
-			<div class="two columns" id="timeline-container">
-				<h5>Timeline</h5>
-				<!-- <div id="burst-12"></div> -->
-				<div id="timeline-box">
-					<p> I am a timeline box </p>
-					
-						<!-- FIGURE OUT TIME -->
-						<%= Time.now.strftime("It's %l:%M%P")%>
-						<%# calculation_hash = { container_start_time: Time.now.beginning_of_day(),  container_end_time: Time.now.end_of_day(), entry_time: Time.now()} %>
-						<% calculation_hash = {} %>
-
-					<div id="child_face_mover" 
-
-						style="
-							color:yellow;
-							position: relative;
-							top: 200px;
-							top: 60%
-							top: <%= CalendarTimeHelper.pos_percentage_from_time(calculation_hash) %>%;
-					"> 
-						I'm kid head</br>
-						Position_percentage is <%= CalendarTimeHelper.pos_percentage_from_time(calculation_hash) %></br>
-						Being inserted.... top: <%= CalendarTimeHelper.pos_percentage_from_time(calculation_hash) %>% </br>
-						<%= image_tag(@child.headshot_image_url, class: "child-photo")%></br>
-						<%= @child.nickname %>
-						<%= CalendarTimeHelper.hello %>
-
-					</div>
-
-					
-
-
-				</div>
-
-			</div> <!-- close timeline container -->
-
-
-
-
-
-
-
-			<div class="seven columns" id="appointments-schedule">
-				<!-- #ACTIVITY SCHEDULE</br></br> -->
-				<% unless @appointments.empty? %>
-					<% @appointments.each do |appointment| %>
-						<div class="appointment-entry">
-						<!-- #ACTIVITY ENTRY -->
-							<img class="scale-with-grid appointment-image" src="<%= appointment.image_url %>">
-							<div class="appointment-text">
-								<%= appointment.name %>
-								<p><%= appointment.description %></p>
-							</div>
-					<% end %>
-				<% end %>
-			
-			</div> <!-- close appointments schedule column -->
-
-		</div> <!-- close calendar entry container -->
-
 	</div>
 
+	<script type="text/javascript">
 
+	var appointment1 = {
+		name: "Preschool"
+		description: "Max goes to Preschool at Montclair PreK. Classroom 1."
+		image_url: google.com
+		start_datetime: 07:00,
+		end_datetime: 09:00
+		}
+
+	var appointment2 = {
+		name: "Swim Class"
+		description: "Big Starfish at Geyer Family YMCA"
+		image_url: google.com
+		start_datetime: 14:00,
+		end_datetime: 14:45
+		}
+
+	var childcare1 = {
+		name: "Playdate with Grandma"
+		// description: "Big Starfish at Geyer Family YMCA"
+		// image_url: google.com
+		start_datetime: 15:00,
+		end_datetime: 18:45
+		}
+
+	var childcare2 = {
+		name: "Daddy is home"
+		// description: "Big Starfish at Geyer Family YMCA"
+		// image_url: google.com
+		start_datetime: 07:00,
+		end_datetime: 10:30
+		}
+
+
+
+		// function setHeight(){
+		// 	var height = parseInt($(window).height() * 0.9) + "px";
+	 //  	$("div.container").css('height', height);
+	 //  }
+
+		// $(function(){
+		// 	setHeight();
+		// 	$(window).bind('resize', setHeight);
+		// });
+	</script>
 
 </body>
+
 </html>
