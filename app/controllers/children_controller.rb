@@ -17,12 +17,12 @@ class ChildrenController < ApplicationController
       # @chilcares.each do |childcare|
     # end
 
-    @payload = build_payload(); #20.times {puts ""}; ap @payload
+    # @payload = build_payload(); #20.times {puts ""}; ap @payload
 
 
     respond_to do |format|
       format.html
-      format.json { render json: @payload }
+      # format.json { render json: @payload }
     end
 
     # render json: @payload
@@ -31,6 +31,18 @@ class ChildrenController < ApplicationController
 
 
 
+  def create
+    child = Child.create(child_params)
+  end
+
+
+
+
+  private
+
+  def child_params
+      params.require(:nickname).permit(:first_name, :last_name, :day_start_time, :day_end_time, :headshot_type, :facebook_username, :paperclip_headshot_url, :other_headshot_url)
+    end
 
 end
 

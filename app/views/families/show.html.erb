@@ -27,6 +27,8 @@
 				<h2><%=Time.now.strftime("It's %l:%M%P on %A, %B %e")%></h2>
 			</div>
 
+
+
 			<div class="sixteen columns" id="list-children">
 
 				<% @family.children.each do |child| %>
@@ -64,13 +66,18 @@
 
 
 
-<%= render partial: "children/form" %>
+
 
 <!-- FIX - shoudn't these partials go at the top or bottom? -->
+
+<%= render partial: "children/form" %>
 
 <%#= render partial: "families/form" %>
 
 <%#= render partial: "users/form" %>
+
+<%#= render partial: "caregivers/form" %> 
+
 
 
 
@@ -106,14 +113,11 @@
 				<%#= link_to("edit self", current_user)%>
 				<p>&nbsp;</p>
 				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>this should be small and maybe accordion-ed</p>
-				<%= render partial: "users/form" %>
+				<p>this should be small and maybe accordioned</p>
+				<%= render partial: "users/form" %> 
+				<!-- If you don't want this to show up, add the 'hidden' tag in the partial itself. -->
 
 			</div>
-
-
 
 		</div>
 

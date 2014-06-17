@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   
   resources :families do
     resources :children
+    resources :caregivers
   end
   
   get '/family/:id', to: 'family#show', as: :user_root_path

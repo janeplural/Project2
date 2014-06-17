@@ -1,13 +1,9 @@
-<%#= form_for([current_user], url: edit_user_registration_path, method: :patch, html: {class: "hidden"}) do |f| %>
-
-<%= form_for([current_user], url: user_registration_path, method: :patch) do |f| %>
-
-  <% if current_user.errors.any? %>
+<%= form_for([@family, @caregiver], html: {class: "hidden"}) do |f| %>
+  <% if @caregiver.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(current_user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
+      <h2><%= pluralize(@caregiver.errors.count, "error") %> prohibited this caregiver from being saved:</h2>
       <ul>
-      <% current_user.errors.full_messages.each do |message| %>
+      <% @caregiver.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
