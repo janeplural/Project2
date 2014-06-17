@@ -30,28 +30,15 @@ class ChildrenController < ApplicationController
   end
 
 
-  # def create
 
 
-  #   respond_to do |format|
 
-  #     if params["facebook_username"]
-  #       Child.create({
-  #         :nickname => params["nickname"],
-  #         :facebook_username => params["facebook_username"]
-  #         })
-  #     else
-  #       Child.create({
-  #         :nickname => params["nickname"]
-  #       })
-  #     end
-  #   end
-  # end
 
   def create
     @child = Child.create(nickname: params[:nickname], facebook_username: params[:facebook_username])
 
     render json: @child
+
   end
 
 
