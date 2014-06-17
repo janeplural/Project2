@@ -1,4 +1,4 @@
-<%= form_for([@family, @child], html: {class: "hidden"}) do |f| %>
+<form class="hidden" id="new-child" action="/families/<%= family.id %>/children">
   <% if @child.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@child.errors.count, "error") %> prohibited this child from being saved:</h2>
@@ -10,26 +10,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nickname %><br>
-    <%= f.text_field :nickname %>
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-    <%= f.label :facebook_username %><br>
-    <%= f.text_field :facebook_username %>
-  </div>
+	<div class="child">
+		<div class="child-photo">Placeholder</div>
+	</div>
 
-
-  <div class="field">                       <!--  #FIX_Jane Is this the right class? -->
-    <%= f.label :day_start_time %><br>
-    <%= f.text_field :day_start_time %>     <!-- #FIX this should be jquery timepicker -->
-
-    <%= f.label :day_end_time %><br>
-    <%= f.text_field :day_end_time %>       <!-- #FIX this should be jquery timepicker -->
-
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
+  <label for="nickname">Nickname</label></br>
+  <input type="text" name="nickname">
+  <label for="facebook_username">facebook username</label></br>
+  <input type="text" name="facebook_username">
+  <input type="submit">
+</form>

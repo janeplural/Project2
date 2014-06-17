@@ -1,27 +1,16 @@
-<%= form_for([@family], html: {class: "hidden"}) do |f| %>
-  <% if @family.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@family.errors.count, "error") %> prohibited this family from being saved:</h2>
+<form class="hidden" id="new-caregiver">
+	<label for="nickname">Nickname</label></br>
+	<input type="text" name="nickname">
 
-      <ul>
-      <% @family.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<label for="first_name">first_name</label></br>
+	<input type="text" name="first_name">
 
-  <div class="field">
-    <%= f.label :nickname %><br>
-    <%= f.text_field :nickname %>
+	<label for="last_name">last_name</label></br>
+	<input type="text" name="last_name">
+	
+	<label for="notes_on_availability">notes</label></br>
+	<input type="text" name="notes_on_availability">
+	<input type="submit">
+</form>
 
-    <%#= f.label :first_name %><br>
-    <%#= f.text_field :first_name %>
 
-    <%#= f.label :last_name %><br>
-    <%#= f.text_field :last_name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

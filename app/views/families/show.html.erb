@@ -41,7 +41,7 @@
 
 		<div class="container">
 
-			<%= render partial: "children/child_form", locals: {family: @family} %>
+			<%= render partial: "children/form", locals: {family: @family} %>
 
 			<div class="sixteen columns" id="user-date-time">
 				<h1>Our Day</h1>
@@ -75,9 +75,10 @@
 				<% end %>
 <!-- add image to this -->
 					<div class="child">
-						<div class="child-photo"><a href="" id="add-child">Add Child</a></div>
+						<div class="child-photo">Add Child</div>
 					</div>	
 
+<!-- #FIX, review below code. not sure if we still need this -->
 					<div id = "child_div">
 						<ul id = "childList">
 						</ul>
