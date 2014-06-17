@@ -31,24 +31,6 @@ class ChildrenController < ApplicationController
 
 
   def create
-
-
-  #   respond_to do |format|
-
-  #     if params["facebook_username"]
-  #       Child.create({
-  #         :nickname => params["nickname"],
-  #         :facebook_username => params["facebook_username"]
-  #         })
-  #     else
-  #       Child.create({
-  #         :nickname => params["nickname"]
-  #       })
-  #     end
-  #   end
-  # end
-
-  def create
     child = Child.create(child_params)
   end
 
@@ -60,7 +42,7 @@ class ChildrenController < ApplicationController
   def child_params
       params.require(:nickname).permit(:first_name, :last_name, :day_start_time, :day_end_time, :headshot_type, :facebook_username, :paperclip_headshot_url, :other_headshot_url)
   end
-#  family_edit
+
 
 end
 
