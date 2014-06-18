@@ -10,9 +10,13 @@
 			<div class="sixteen columns">
 				<img class="scale-with-grid user-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">
 
-				<p>Welcome, Username#FIX should be current user after auth is done</p>
+				<p>Welcome, 
+					<%= current_user.first_name || current_user.email %>
+				</p>
 
 				<a id="logout" href="#">Logout</a>
+				<%= link_to "Log Out!", destroy_user_session_path, method: :delete  %>
+				#FIX_JANE - id should be on the div, the the a-link
 			</div>
 		</div>
 
