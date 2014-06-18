@@ -12,8 +12,8 @@ class CreatePersons < ActiveRecord::Migration
      
 
       #stuff that serves in the child class
-        t.datetime :day_start_time
-        t.datetime :day_end_time
+        t.datetime :day_start_datetime
+        t.datetime :day_end_datetime
 
       #stuff that serves in the caregiver class
         t.text :notes_on_availability

@@ -1,7 +1,10 @@
 <html>
 <head>
+	
 	<title>Test</title>
+
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.js"></script>
+	
 	<style type="text/css">
 		html, body {
 			height: 100%;
@@ -18,84 +21,265 @@
 			min-width: 420px;
 			height: 96%;
 		}
-		.schedule-container {
+
+
+		.jr-3-column-container {  				/*#FIX NAMESPACE*/
 			padding: 0;
 			text-align: center;
 			height: calc(96% - 4em);
 			/*height: 90%;
 			margin-bottom: -4em;*/
 		}
-		.schedule {
+		.jr-column {							/*#FIX NAMESPACE*/
 			display: inline-block;
 			vertical-align: top;
 			border: 2px solid green;
 			height: 99%;
 			position: re	lative;
 		}
-		.childcare, .appointment {
+		.childcare-column, .appointment-column {
 			width: 35%;
 		}
-		.timeline {
+		.clock-column {
 			width: 10%;
+			background-color: grey;
 		}
+
+		.clock {
+			position: relative;
+		}
+
 	</style>
+
 </head>
 
 <body>
+
 	<div class="container">
-		<header></header>
-		<div id="schedule-container" class="schedule-container">
-			<div id="childcare" class="childcare schedule"></div>
-			<div id="timeline" class="timeline schedule"></div>
-			<div id="appointment" class="appointment schedule"></div>
+		<!-- #FIX this should be a header (h1, h2, etc) and centered -->
+		<header>Hello <%= @child.nickname %></header>
+
+		<div id="jr-3-column-container" class="jr-3-column-container">
+			<div id="childcare-column" class="childcare-column jr-column">childcare cal entries go here</div>
+			<div id="clock-column" class="clock-column jr-column">center clock</div>
+			<div id="appointment-column" class="appointment-column jr-column">appointments cal entries go here</div>
 		</div>
 	</div>
 
 	<script type="text/javascript">
 
-	var appointment1 = {
-		name: "Preschool"
-		description: "Max goes to Preschool at Montclair PreK. Classroom 1."
-		image_url: google.com
-		start_datetime: 07:00,
-		end_datetime: 09:00
+
+
+	// SEED
+
+		var appointment1_json = {
+			name: "Preschool",
+			description: "Max goes to Preschool at Montclair PreK. Classroom 1.",
+			// image_url: google.com,
+			start_datetime: '07:00',
+			end_datetime: '09:00'
+			}
+
+		var appointment2_json = {
+			name: "Swim Class",
+			description: "Big Starfish at Geyer Family YMCA",
+			// image_url: google.com
+			start_datetime: '14:00',
+			end_datetime: '14:45'
+			}
+
+		var childcare1_json = {
+			name: "Playdate with Grandma",
+			// description: "Big Starfish at Geyer Family YMCA",
+			// image_url: google.com,
+			start_datetime: '15:00',
+			end_datetime: '18:45'
+			}
+
+		var childcare2_json = {
+			name: "Daddy is home",
+			// description: "Big Starfish at Geyer Family YMCA",
+			// image_url: google.com
+			start_datetime: '07:00',
+			end_datetime: '10:30'
+			}
+
+		var max_json = {
+			nickname: 'Max',
+			family_id: 1, 
+			image_url: 'hello',
+			day_start_datetime:'07:00',
+			day_end_datetime: '09:00'
+			}
+
+
+
+
+
+	// INITIALIZER
+
+		$( document ).ready(function() {
+			console.log("DOM ready");
+			addEventTriggers();
+
+			runTests();
+
+			// Renderer.drawAppointmentsFromArray([appointment1, appointment2])
+		// 	// Renderer.drawChildcares()
+		// 	// Renderer.drawClock()
+		});
+
+
+	// HID
+		function addEventTriggers(){
+			console.log("running addEventTriggers");
+
+
+			$('.btn').on('submit', function(event_from_btn){
+				console.log(".btn.click.on(submit) triggered (hopefully, default action prevented so this does nothing");
+				event_from_submit.preventDefault();
+			});
+
+			
+			// 	// $(".name-form").click(function(){
+			// 	// 	console.log(".name-form.click triggered");
+			// 	// 	console.log("storing form data in formData")
+			// 	// 	var formData = {
+			// 	// 		name: $('.name-form input[name="name"]').val(),
+			// 	// 	}
+			// 	// 	console.log("form data is:");
+			// 	// 	console.log(formData);
+			// 		// person = new Person(formData)
+					
+
+			// 		// peopleCollection.create({name: newNameInput.val()});
+			// 		// newNameInput.val('');
+		}
+	
+
+
+	// MODEL
+		function Child(input_data_json){
+			console.log("running Child on "+ input_data_json);
+			this.id = input_data_json["id"];
+			this.family_id = input_data_json["family_id"];
+			this.nickname = input_data_json["nickname"];
+			// this.first_name = input_data_json["first_name"];
+			// this.last_name = input_data_json["last_name"];
+			this.day_start_datetime = input_data_json["day_start_datetime"];
+			this.day_end_datetime = input_data_json["day_end_datetime"];
+			// this.headshot_type = input_data_json["headshot_type"];
+			// this.facebook_username = input_data_json["facebook_username"];
+			// this.paperclip_headshot_url = input_data_json["paperclip_headshot_url"];
+			// this.other_headshot_url = input_data_json["other_headshot_url"];
+			// this.email = input_data_json["email"];
+			// this.created_at = input_data_json["created_at"];
+			// this.updated_at = input_data_json["updated_at"];
 		}
 
-	var appointment2 = {
-		name: "Swim Class"
-		description: "Big Starfish at Geyer Family YMCA"
-		image_url: google.com
-		start_datetime: 14:00,
-		end_datetime: 14:45
-		}
-
-	var childcare1 = {
-		name: "Playdate with Grandma"
-		// description: "Big Starfish at Geyer Family YMCA"
-		// image_url: google.com
-		start_datetime: 15:00,
-		end_datetime: 18:45
-		}
-
-	var childcare2 = {
-		name: "Daddy is home"
-		// description: "Big Starfish at Geyer Family YMCA"
-		// image_url: google.com
-		start_datetime: 07:00,
-		end_datetime: 10:30
+		function CalendarEntry(input_data_json){
+			console.log("running Entry on" +input_data_json);
+			this.id = input_data_json["id"];
+			this.type = input_data_json["type"];
+			this.start_datetime = input_data_json["start_datetime"];
+			this.end_datetime = input_data_json["end_datetime"];
+			this.description = input_data_json["description"];
+			this.image_url = input_data_json["image_url"];
+			this.created_at = input_data_json["created_at"];
+			this.updated_at = input_data_json["updated_at"];
 		}
 
 
 
-		// function setHeight(){
-		// 	var height = parseInt($(window).height() * 0.9) + "px";
-	 //  	$("div.container").css('height', height);
-	 //  }
+	// VIEW
 
-		// $(function(){
-		// 	setHeight();
-		// 	$(window).bind('resize', setHeight);
-		// });
+		// PersonView = function(model){
+		// 	// creates html bits from a model
+		// 	console.log("running PersonView");
+		// 	this.model = model; 
+		// 	// this.el = undefined; 
+		// }
+
+		// PersonView.prototype.render_self_as_li = function(){
+		// 	var newElement = $('<li>').html(this.model.name);
+		// 	// need to add other elements here, right?
+		// 	// this.el = newElement;
+		// 	return this
+		// }
+
+		function childRenderer(Child){
+			console.log("running childRenderer");
+			var $childClock = $("<div>")
+			$childClock.addClass("clock")
+			$childClock.append($("<img src="+Child.image_url+">"));
+			$childClock.append($("<p>").text(Child.nickname));
+			// $childClock = $("<div>").addClass("clock").append($("<img src="+Child.image_url+">"));
+			// $childClock.css('position', 'relative') // added to CSS
+			$childClock.css('top', '50%')
+			$childClock.css('height', '15%')
+			$("#clock-column").append($childClock)
+
+			return $childClock
+		}
+
+
+
+		function singleEntryRenderer(CalendarEntry){
+			console.log("running singleEntryRenderer on" + CalendarEntry)
+			$default_day_start_datetime = '07:00';
+			$default_day_end_datetime = '9:00';
+
+			// setDay_start_datetime = function(){}
+			// setDay_end_datetime = function(){}
+
+		}
+
+	// TESTS
+		function runTests(){
+			console.log("running runTests")
+
+			console.log("TESTING CHILD")
+
+			Max = new Child(max_json);
+				console.log(Max);
+			$childClock = childRenderer(Max);	//#FIX #LEARN - should we use '$' here?
+
+			// singleEntryRenderer(Appointment1);
+			// console.log (Appointment1);
+		}
+
+		// 	drawAppointmentsFromArray = function(appointments_array){
+		// 		// appointments_array.for_each()
+
+
+
+		// 		// {
+		// 			// console.log(appointment)
+		// 		// }
+		// 	}
+
+		// // 	drawIndividualAppointment(){
+		// // 	}
+
+
+		// }
+
+		// drawAppointments([appointment1, appointment2])
+
+
+
+
+			// function setHeight(){
+				// var height = parseInt($(window).height() * 0.9) + "px";
+		  	// $("div.container").css('height', height);
+		 //  }
+
+			// $(function(){
+			// 	setHeight();
+			// 	$(window).bind('resize', setHeight);
+			// });
+
+
 	</script>
 
 </body>
