@@ -45,8 +45,17 @@
 			background-color: grey;
 		}
 
-		.clock {
+		.dynamically-positioned {
 			position: relative;
+		}
+
+		.clock {
+		}
+
+		.childcare {
+		}
+
+		.appointment {
 		}
 
 	</style>
@@ -68,6 +77,133 @@
 
 	<script type="text/javascript">
 
+
+	// MODELS
+		function Child(input_data_json){
+			console.log("running Child on "+ input_data_json);
+			this.id = input_data_json["id"];
+			this.family_id = input_data_json["family_id"];
+			this.nickname = input_data_json["nickname"];
+			// this.first_name = input_data_json["first_name"];
+			// this.last_name = input_data_json["last_name"];
+			this.day_start_datetime = input_data_json["day_start_datetime"];
+			this.day_end_datetime = input_data_json["day_end_datetime"];
+			// this.headshot_type = input_data_json["headshot_type"];
+			// this.facebook_username = input_data_json["facebook_username"];
+			// this.paperclip_headshot_url = input_data_json["paperclip_headshot_url"];
+			// this.other_headshot_url = input_data_json["other_headshot_url"];
+			// this.email = input_data_json["email"];
+			// this.created_at = input_data_json["created_at"];
+			// this.updated_at = input_data_json["updated_at"];
+		}
+
+		function Appointment(input_data_json){
+			console.log("running Entry on" +input_data_json);
+			this.id = input_data_json["id"];
+			this.type = input_data_json["type"];
+			this.name = input_data_json["name"];
+			this.start_datetime = input_data_json["start_datetime"];
+			this.end_datetime = input_data_json["end_datetime"];
+			this.description = input_data_json["description"];
+			this.image_url = input_data_json["image_url"];
+			this.created_at = input_data_json["created_at"];
+			this.updated_at = input_data_json["updated_at"];
+		}
+
+		function Childcare(input_data_json){
+			console.log("running Entry on" +input_data_json);
+			this.id = input_data_json["id"];
+			this.type = input_data_json["type"];
+			this.name = input_data_json["name"];
+			this.start_datetime = input_data_json["start_datetime"];
+			this.end_datetime = input_data_json["end_datetime"];
+			this.description = input_data_json["description"];
+			this.created_at = input_data_json["created_at"];
+			this.updated_at = input_data_json["updated_at"];
+			//#FIX CAREGIVER STUFF
+		}
+
+
+
+	// VIEW RENDERERS
+
+		function renderClockFromChild(Child){
+			console.log("running renderClockFromChild");
+			
+			var $childClock = $("<div>")
+				$childClock.addClass("dynamically-positioned clock")
+				$childClock.append($("<img src="+Child.image_url+">"));
+				$childClock.append($("<p>").text(Child.nickname));
+				$childClock.css('top', '50%')
+				$childClock.css('height', '15%')
+			
+			$("#clock-column").append($childClock)
+
+			return $childClock
+		}
+
+
+
+		function renderAppointment(Appointment){
+			console.log("running renderAppointment on" + Appointment)
+			
+			var $appointment = $("<div>")
+				$appointment.addClass("dynamically-positioned appointment")
+				$appointment.append($("<img src="+Appointment.image_url+">"));
+				$appointment.append($("<p>").text(Appointment.name));
+				$appointment.css('top', '20%')
+				$appointment.css('height', '15%')
+			
+			$("#appointment-column").append($appointment)
+
+			return $appointment
+
+		}
+
+		function renderChildcare(Childcare){
+			console.log("running renderChildcare on" + Childcare)
+			
+			var $childcare = $("<div>")
+				$childcare.addClass("dynamically-positioned childcare")
+				$childcare.append($("<img src="+Childcare.image_url+">"));
+				$childcare.append($("<p>").text(Childcare.name));
+				$childcare.css('top', '20%')
+				$childcare.css('height', '15%')
+			
+			$("#childcare-column").append($childcare)
+
+			return $childcare
+		}
+
+
+	// HID
+		function addEventTriggers(){
+			console.log("running addEventTriggers");
+
+
+			$('.btn').on('submit', function(event_from_btn){
+				console.log(".btn.click.on(submit) triggered (hopefully, default action prevented so this does nothing");
+				event_from_submit.preventDefault();
+			});
+
+			
+			// 	// $(".name-form").click(function(){
+			// 	// 	console.log(".name-form.click triggered");
+			// 	// 	console.log("storing form data in formData")
+			// 	// 	var formData = {
+			// 	// 		name: $('.name-form input[name="name"]').val(),
+			// 	// 	}
+			// 	// 	console.log("form data is:");
+			// 	// 	console.log(formData);
+			// 		// person = new Person(formData)
+					
+
+			// 		// peopleCollection.create({name: newNameInput.val()});
+			// 		// newNameInput.val('');
+		}
+
+
+	// DATA HANDLERS (CONTROLLERS?)
 
 
 	// SEED
@@ -113,171 +249,70 @@
 			}
 
 
-
-
-
 	// INITIALIZER
 
 		$( document ).ready(function() {
 			console.log("DOM ready");
 			addEventTriggers();
 
+			Child = new Child(max_json);
+
 			runTests();
 
-			// Renderer.drawAppointmentsFromArray([appointment1, appointment2])
-		// 	// Renderer.drawChildcares()
-		// 	// Renderer.drawClock()
 		});
 
+		
 
-	// HID
-		function addEventTriggers(){
-			console.log("running addEventTriggers");
-
-
-			$('.btn').on('submit', function(event_from_btn){
-				console.log(".btn.click.on(submit) triggered (hopefully, default action prevented so this does nothing");
-				event_from_submit.preventDefault();
-			});
-
-			
-			// 	// $(".name-form").click(function(){
-			// 	// 	console.log(".name-form.click triggered");
-			// 	// 	console.log("storing form data in formData")
-			// 	// 	var formData = {
-			// 	// 		name: $('.name-form input[name="name"]').val(),
-			// 	// 	}
-			// 	// 	console.log("form data is:");
-			// 	// 	console.log(formData);
-			// 		// person = new Person(formData)
-					
-
-			// 		// peopleCollection.create({name: newNameInput.val()});
-			// 		// newNameInput.val('');
-		}
-	
-
-
-	// MODEL
-		function Child(input_data_json){
-			console.log("running Child on "+ input_data_json);
-			this.id = input_data_json["id"];
-			this.family_id = input_data_json["family_id"];
-			this.nickname = input_data_json["nickname"];
-			// this.first_name = input_data_json["first_name"];
-			// this.last_name = input_data_json["last_name"];
-			this.day_start_datetime = input_data_json["day_start_datetime"];
-			this.day_end_datetime = input_data_json["day_end_datetime"];
-			// this.headshot_type = input_data_json["headshot_type"];
-			// this.facebook_username = input_data_json["facebook_username"];
-			// this.paperclip_headshot_url = input_data_json["paperclip_headshot_url"];
-			// this.other_headshot_url = input_data_json["other_headshot_url"];
-			// this.email = input_data_json["email"];
-			// this.created_at = input_data_json["created_at"];
-			// this.updated_at = input_data_json["updated_at"];
-		}
-
-		function CalendarEntry(input_data_json){
-			console.log("running Entry on" +input_data_json);
-			this.id = input_data_json["id"];
-			this.type = input_data_json["type"];
-			this.start_datetime = input_data_json["start_datetime"];
-			this.end_datetime = input_data_json["end_datetime"];
-			this.description = input_data_json["description"];
-			this.image_url = input_data_json["image_url"];
-			this.created_at = input_data_json["created_at"];
-			this.updated_at = input_data_json["updated_at"];
-		}
-
-
-
-	// VIEW
-
-		// PersonView = function(model){
-		// 	// creates html bits from a model
-		// 	console.log("running PersonView");
-		// 	this.model = model; 
-		// 	// this.el = undefined; 
-		// }
-
-		// PersonView.prototype.render_self_as_li = function(){
-		// 	var newElement = $('<li>').html(this.model.name);
-		// 	// need to add other elements here, right?
-		// 	// this.el = newElement;
-		// 	return this
-		// }
-
-		function childRenderer(Child){
-			console.log("running childRenderer");
-			var $childClock = $("<div>")
-			$childClock.addClass("clock")
-			$childClock.append($("<img src="+Child.image_url+">"));
-			$childClock.append($("<p>").text(Child.nickname));
-			// $childClock = $("<div>").addClass("clock").append($("<img src="+Child.image_url+">"));
-			// $childClock.css('position', 'relative') // added to CSS
-			$childClock.css('top', '50%')
-			$childClock.css('height', '15%')
-			$("#clock-column").append($childClock)
-
-			return $childClock
-		}
-
-
-
-		function singleEntryRenderer(CalendarEntry){
-			console.log("running singleEntryRenderer on" + CalendarEntry)
-			$default_day_start_datetime = '07:00';
-			$default_day_end_datetime = '9:00';
-
-			// setDay_start_datetime = function(){}
-			// setDay_end_datetime = function(){}
-
-		}
 
 	// TESTS
 		function runTests(){
 			console.log("running runTests")
 
+
+			console.log(""); console.log(""); console.log("");
 			console.log("TESTING CHILD")
+			// Child = new Child(max_json);   //We don't do this here because it is done in the initializer
+				console.log(Child);
+			$childClock = renderClockFromChild(Child);	//#FIX #LEARN - should we use '$' here?
 
-			Max = new Child(max_json);
-				console.log(Max);
-			$childClock = childRenderer(Max);	//#FIX #LEARN - should we use '$' here?
 
-			// singleEntryRenderer(Appointment1);
-			// console.log (Appointment1);
+
+
+			console.log(""); console.log(""); console.log("");
+			console.log("TESTING APPOINTMENT")
+			Appointment1 = new Appointment(appointment1_json);
+				console.log(Appointment1);
+			$Appointment1 = renderAppointment(Appointment1);	//#FIX #LEARN - should we use '$' here?
+
+			console.log("TESTING APPOINTMENT")
+			Appointment2 = new Appointment(appointment2_json);
+				console.log(Appointment2);
+			$Appointment2 = renderAppointment(Appointment2);	//#FIX #LEARN - should we use '$' here?
+
+
+
+
+			console.log(""); console.log(""); console.log("");
+			console.log("TESTING CHILDCARE")
+			Childcare1 = new Childcare(childcare1_json);
+				console.log(Childcare1);
+			$Childcare1 = renderChildcare(Childcare1);	//#FIX #LEARN - should we use '$' here?
+
+
+			console.log("TESTING CHILDCARE")
+			Childcare2 = new Childcare(childcare2_json);
+				console.log(Childcare2);
+			$Childcare2 = renderChildcare(Childcare2);	//#FIX #LEARN - should we use '$' here?
+
+
 		}
-
-		// 	drawAppointmentsFromArray = function(appointments_array){
-		// 		// appointments_array.for_each()
+		
 
 
-
-		// 		// {
-		// 			// console.log(appointment)
-		// 		// }
-		// 	}
-
-		// // 	drawIndividualAppointment(){
-		// // 	}
-
-
-		// }
-
-		// drawAppointments([appointment1, appointment2])
+	
 
 
 
-
-			// function setHeight(){
-				// var height = parseInt($(window).height() * 0.9) + "px";
-		  	// $("div.container").css('height', height);
-		 //  }
-
-			// $(function(){
-			// 	setHeight();
-			// 	$(window).bind('resize', setHeight);
-			// });
 
 
 	</script>
