@@ -5,38 +5,14 @@
 	</head>
 
 	<body>
-		<!-- <form class="hidden" id="new-child">
-			<label for="nickname">Nickname</label></br>
-			<input type="text" name="nickname">
-			<label for="facebook_username">facebook username</label></br>
-			<input type="text" name="facebook_username">
-			<input type="submit">
-		</form> -->
-
-		<!-- FIX - shoudn't these partials go at the top or bottom? -->
-
-		<%#= render partial: "children/form" %>
-
-		<%#= render partial: "families/form" %>
-
-
-		<%#= render partial: "users/form" %>
-
-
-		<%#= render partial: "caregivers/form" %> 
-
 		<div id="user-nav">
-			<div class="sixteen columns">
-				<img class="scale-with-grid user-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">
+				<img class="scale-with-grid circle-small" id="user-pic" src="http://thumb9.shutterstock.com/thumb_small/197467/197467,1303208750,2/stock-photo-silhouette-of-a-girls-head-75565513.jpg">
 
 				<p>Welcome, 
 					<%= current_user.first_name || current_user.email %>
 				</p>
 
-				<a id="logout" href="#">Logout</a>
-				<%= link_to "Log Out!", destroy_user_session_path, method: :delete  %>
-				<!-- #FIX_JANE - id should be on the div, the the a-link -->
-			</div>
+				<%= link_to "Log Out!", destroy_user_session_path, method: :delete, id: :"logout" %>
 		</div>
 
 		<div class="container">
@@ -48,8 +24,6 @@
 				<h2><%=Time.now.strftime("It's %l:%M%P on %A, %B %e")%></h2>
 			</div>
 
-
-
 			<div class="sixteen columns" id="list-children">
 
 				<% @family.children.each do |child| %>
@@ -59,7 +33,7 @@
 							<h4><%= child.nickname %></h4>
 						</div>
 						<div class="child-photo-div">
-							<%= image_tag(child.headshot_image_url, class: "child-photo")%>
+							<%= image_tag(child.headshot_image_url, class: "circle-xlarge", id: "child-photo")%>
 						</div>
 						<div>
 							<div class="update-button">
@@ -74,16 +48,11 @@
 
 				<% end %>
 <!-- add image to this -->
-					<div class="child">
-						<div class="child-photo"><a id="add-child" href="">Add Child</a></div>
-					</div>	
-
-<!-- #FIX, review below code. not sure if we still need this -->
-					<div id = "child_div">
-						<ul id = "childList">
-						</ul>
+				<div class="child">
+					<div class="circle-xlarge">
+						<a id="add-child">Add Child</a>
 					</div>
-
+				</div>
 
 			</div>
 
@@ -91,19 +60,20 @@
 				<h4>Caregivers</h4>
 				<div class="caregiver-div">
 					<div id="add-caregiver">
-
-
-					<!--#FIX make this a link_to tag with image tag when icon is ready -->
+						
+<!--#FIX make this a link_to tag with image tag when icon is ready -->
 						<a href="#"><span style="font-size:75px">+</span></a>
 
 					</div>
 					<p>Add Caregiver</p>
 				</div>
 
+		<%= render partial: "caregivers/form", locals: {family: @family}  %> 
+
 				<% @family.caregivers.each do |caregiver| %>
 					<div class="caregiver-div">
 						<!-- <p><%#= image_tag("silloeutte.png") %></p> -->
-						<%= image_tag(caregiver.headshot_image_url, class: "caregiver-pic")%>		
+						<%= image_tag(caregiver.headshot_image_url, class: "circle-large", id: "caregiver-pic")%>		
 						<p><%= caregiver.nickname %></p>
 					</div>
 				<% end %>

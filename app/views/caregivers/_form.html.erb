@@ -10,10 +10,10 @@
 	<!-- #FIX - this should be DRYed out -->
 	<!-- <%# if @obj.errors.any? %>
 		<div id="error_explanation">
-			<h2><%#= pluralize(@obj.errors.count, "error") %> prohibited this <%= obj_name %> from being saved:</h2>
+			<h2><%#= pluralize(@obj.errors.count, "error") %> prohibited this <%#= obj_name %> from being saved:</h2>
 			<ul>
 				<%# @obj.errors.full_messages.each do |message| %>
-					<li><%= message %></li>
+					<li><%#= message %></li>
 				<%# end %>
 			</ul>
 		</div>
@@ -24,23 +24,24 @@
 
 <!-- Text Fields -->
 
-		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<div class="child-photo-dummy"><a href="">Add/Edit Photo</a></div>
 
-		<label for="nickname">Nickname</label></br>
-			<input type="text" name="nickname">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-		<label for="first_name">first_name</label></br>
-			<input type="text" name="first_name">
+	<label for="nickname">Nickname</label></br>
+		<input type="text" name="nickname">
 
-		<label for="last_name">last_name</label></br>
-			<input type="text" name="last_name">
+	<label for="first_name">first_name</label></br>
+		<input type="text" name="first_name">
 
-		<label for="email">email</label></br>
-			<input type="text" name="email">
+	<label for="last_name">last_name</label></br>
+		<input type="text" name="last_name">
 
-		<label for="notes_on_availability">notes_on_availability</label></br>
-			<input type="text" name="notes_on_availability">
+	<label for="email">email</label></br>
+		<input type="text" name="email">
 
+	<label for="notes_on_availability">notes_on_availability</label></br>
+		<input type="text" name="notes_on_availability">
 
 	<!-- Button -->
 	<input type="submit">

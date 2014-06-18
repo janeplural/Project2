@@ -1,29 +1,20 @@
-/*PANIC TEST*/
+/* Kid Show ==================*/
 
-@import url(http://fonts.googleapis.com/css?family=Quicksand);
-
-/* in sass nest header-nav*/
 .header-nav{
-	margin-bottom: 3%;	
 	color: white;
+	margin-bottom: 3%;	
 	padding-top: 3%;
 }
 
 .header-nav h1{
-	text-align: center;
 	font-weight: bolder;
 	margin-bottom: 7%;
-}
-
-#header-title{
-	margin: 3% 0;
-	/*color: #3B8531;*/
+	text-align: center;
 }
 
 .navigation{
-	width: 23%;
-	/*background-color: yellow;*/
 	float: left;
+	width: 23%;
 }
 
 #next-button{
@@ -31,70 +22,47 @@
 }
 
 #date-time{
-	width: 46%;
-	/*background-color: yellow;*/
 	float: left;
-	text-align: center;
 	margin: 0 4%;
-}
-
-#childcares-schedule{
-	/*background-color: yellow;*/
+	text-align: center;
+	width: 46%;
 }
 
 .childcare-entry{
-	clear: both;
-	overflow: auto;
-	width: 90%;
-	min-height: 105px;
-	background-color: #7EABFF;
-	text-align: center;
-	margin: 2% auto;
-	padding: 1%;
-
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px; 
+	background-color: #7EABFF;
+	clear: both;
+	margin: 2% auto;
+	min-height: 105px;
+	overflow: auto;
+	padding: 1%;
+	text-align: center;
+	width: 90%;
 }
-
-.caregiver-pic{
-	height: 100px;
-	width: 100px;
+/*renamed from .caregiver-pic, created id*/
+.circle-large{
 	-moz-border-radius: 50px;
 	-webkit-border-radius: 50px;
 	border-radius: 50px;
 	background-color: grey;
-	margin: 0 3%;
 	float: left;
-}
-
-#timeline{
-	background-color: lightGrey;
-}
-
-/* height can't be hardcoded */
-.time-tick{
-	border-left: 2px solid black;
-	height: 50px;
-	margin-left: 50%;
-	display: block;
-}
-
-#appointments-schedule{
-	/*background-color: yellow;*/
+	height: 100px;
+	margin: 0 3%;
+	width: 100px;
 }
 
 .appointment-entry{
-	width: 90%;
-	margin: 2% auto;
-	padding: 1%;
-	text-align: center;
-	background-color: #8867E8;
-	color: white;
-
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px; 
+	background-color: #8867E8;
+	color: white;
+	margin: 2% auto;
+	padding: 1%;
+	width: 90%;
+	text-align: center;
 }
 
 .appointment-image{
@@ -110,22 +78,12 @@
 
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
-
 }
 
 .appointment-text{
-	border-top: 2px solid black;
 	font-family: 'Quicksand', sans-serif;
-	font-weight: bolder;
-	padding: 1%;
 	font-size: 30px;
-}
-
-/* height can't be hardcoded, need variable */
-.empty-entry{
-	height: 60px;
-	width: 90%;
-	margin: 2% auto;
+	font-weight: bolder;
 	padding: 1%;
 }
 
@@ -137,32 +95,32 @@ border-top-right-radius: 10px;
 
 #user-nav p{
 	display: inline-block;
- 	vertical-align: middle;
- 	text-align: center;
- 	margin: 3% 0;
  	font-family: 'Quicksand', sans-serif;
+ 	margin: 3% 0;
+ 	text-align: center;
+ 	vertical-align: middle;
 }
 
 #user-nav a{
- 	vertical-align: middle;
- 	text-align: center;
  	font-family: 'Quicksand', sans-serif;
+  text-align: center;
+ 	vertical-align: middle;
 }
-
-.user-pic {
-	height: 50px;
-	width: 50px;
+/* changed from .user-pic, added id*/
+.circle-small {
 	-moz-border-radius: 25px;
 	-webkit-border-radius: 25px;
 	border-radius: 25px;
-	margin: 1%;
 	float: left;	
+	height: 50px;
+	margin: 1%;
+	width: 50px;
 }
 
 #logout{
+	margin: 1%;
 	margin-top: 1%;
 	margin-right: 1%;
-	float: right;
 }
 
 #user-date-time{
@@ -171,29 +129,30 @@ border-top-right-radius: 10px;
 	color: white;
 }
 
-#list-children{
+/*#list-children{
 	margin-bottom: 5%;
 }
-
+*/
 .child{
-	text-align: center;
-	width: 32%;
 	float: left;
+	text-align: center;
+	width: 32%
 }
 
 .child-photo-div{
 	margin-bottom: 3%;
 }
 
-.child-photo{
+/* renamed from .child-photo, added id */
+.circle-xlarge{
 	height: 200px;
 	width: 200px;
-	border: solid 3px #ED71FF;
 	-moz-border-radius: 100px;
 	-webkit-border-radius: 100px;
 	border-radius: 100px;
+	border: solid 3px #ED71FF;
+
 	margin: 0 auto;
-	/*display: inline;*/
 }
 
 .buttons{

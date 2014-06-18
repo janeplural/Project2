@@ -12,9 +12,7 @@
 	<div class="container">
 
 		<div class="sixteen columns header-nav">
-			<div id="header-title">
 				<h1>Our Day</h1>
-			</div>
 
 			<div class="navigation" id="preview-button">
 				<!-- <a id="previous" href src="#">Prev</a> -->
@@ -55,7 +53,7 @@
 							<%= childcare.name %>
 							<% childcare.caregivers.each do |caregiver| %>	
 								<div class="caregiver-div">
-								<%= image_tag(caregiver.headshot_image_url, class: "caregiver-pic")%>
+								<%= image_tag(caregiver.headshot_image_url, class: "circle-large", id: "caregiver-pic")%>
 								<%= caregiver.nickname %>
 								</div> 	<!-- caregiver-div closer -->
 							<% end %> 	<!-- close caregivers loop -->

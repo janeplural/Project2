@@ -9,6 +9,8 @@ class PersonsController < ApplicationController
 		# This isn't really editing the person, it's just editing the photo fields. 
 		# They evntually might be refactored into a seperate model or something.
 
+		#FIX JOHN - we need to identify @person by id? if we're editing...
+
 		@person = Person.update(nickname: params[:nickname], 
 								facebook_username: params[:facebook_username], 
 								linkedin_username: params[:linkedin_username], 
