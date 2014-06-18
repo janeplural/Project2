@@ -1,0 +1,66 @@
+<html>
+<head>
+	<title>Test</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.js"></script>
+	<style type="text/css">
+		html, body {
+			height: 100%;
+		}
+		div, header {
+			border: 1px solid black;
+			border-radius: 10px;
+		}
+		header {
+			/*margin-bottom: 20px;*/
+			height: 4em;
+		}
+		.container {
+			min-width: 420px;
+			height: 96%;
+		}
+		.schedule-container {
+			padding: 0;
+			text-align: center;
+			height: calc(96% - 4em);
+			/*height: 90%;
+			margin-bottom: -4em;*/
+		}
+		.schedule {
+			display: inline-block;
+			vertical-align: top;
+			border: 2px solid green;
+			height: 99%;
+			position: re	lative;
+		}
+		.childcare, .appointment {
+			width: 35%;
+		}
+		.timeline {
+			width: 10%;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header></header>
+		<div id="schedule-container" class="schedule-container">
+			<div id="childcare" class="childcare schedule"></div>
+			<div id="timeline" class="timeline schedule"></div>
+			<div id="appointment" class="appointment schedule"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+
+		// function setHeight(){
+		// 	var height = parseInt($(window).height() * 0.9) + "px";
+	 //  	$("div.container").css('height', height);
+	 //  }
+
+		// $(function(){
+		// 	setHeight();
+		// 	$(window).bind('resize', setHeight);
+		// });
+	</script>
+</body>
+</html>

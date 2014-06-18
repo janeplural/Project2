@@ -1,0 +1,68 @@
+<!-- config -->
+<% obj_name = 'person' %>
+<% obj_name_plural = 'persons' %>
+<% @obj = @person %>
+
+<!-- form -->
+<form class="hidden" id="edit-<%=obj_name %>" action="/families/<%= family.id %>/<%=obj_name_plural %>">
+
+	<!-- error checking (mostly from devise) -->
+	<!-- #FIX - this should be DRYed out -->
+<!-- 	<%# if @obj.errors.any? %>
+		<div id="error_explanation">
+			<h2><%#= pluralize(@obj.errors.count, "error") %> prohibited this <%# obj_name %> from being saved:</h2>
+			<ul>
+				<%# @obj.errors.full_messages.each do |message| %>
+					<li><%#= message %></li>
+				<%# end %>
+			</ul>
+		</div>
+	<%# end %>
+ -->
+
+	
+
+	<!-- Text Fields -->
+
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+		<label for="nickname">Nickname</label></br>
+			<input type="text" name="nickname" value="dynamic">
+
+		<label for="facebook_username">facebook username</label></br>
+			<input type="text" name="facebook_username">
+
+		<!-- <label for="linkedin_username">linkedin_username</label></br>
+			<input type="text" name="linkedin_username"> -->
+
+		<!-- <label for="other_headshot_url">other_headshot_url</label></br>
+			<input type="text" name="other_headshot_url"> -->
+
+		<label for="PAPERCLIP_PLACEHOLDER"> PAPERCLIP_PLACEHOLDER</label></br>
+			<input type="text" name="PAPERCLIP_PLACEHOLDER">
+
+
+
+	<!-- Image Selection Fields -->
+		<div class="<%= obj_name %>-photo">Facebook Img Placeholder</div>
+			<!-- if this one is selected, headshot_type = facebook_username -->
+		<!-- <div class="<%#= obj_name %>-photo">LinkedIn Placeholder</div>
+			<!-- if this one is selected, headshot_type = linkedin_username -->
+		<!-- <div class="<%#= obj_name %>-photo">Other url Placeholder</div> -->
+			<!-- if this one is selected, headshot_type = other_headshot_url --> 
+
+
+
+		<div class="<%= obj_name %>-photo">PAPERCLIP_PLACEHOLDER Img 1</div>
+
+			<!-- if this one is selected, headshot_type = paperclip -->
+		<!-- <div class="<%#= obj_name %>-photo">PAPERCLIP_PLACEHOLDER 2</div>
+			<!-- if this one is selected, headshot_type = paperclip -->
+		<!-- <div class="<%#= obj_name %>-photo">PAPERCLIP_PLACEHOLDER 3 </div> -->
+			<!-- if this one is selected, headshot_type = paperclip -->
+
+		
+	<!-- Button -->
+	<input type="submit">
+
+</form>

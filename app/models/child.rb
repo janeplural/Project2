@@ -8,11 +8,14 @@
 #  nickname               :string(255)
 #  first_name             :string(255)
 #  last_name              :string(255)
+#  day_start_time         :datetime
+#  day_end_time           :datetime
+#  notes_on_availability  :text
 #  description            :text
 #  headshot_type          :string(255)
 #  facebook_username      :string(255)
-#  uploaded_headshot_url  :string(255)
-#  notes_on_availability  :text
+#  paperclip_headshot_url :string(255)
+#  other_headshot_url     :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
 #  email                  :string(255)      default(""), not null
@@ -28,7 +31,6 @@
 #
 # Indexes
 #
-#  index_persons_on_email                 (email) UNIQUE
 #  index_persons_on_reset_password_token  (reset_password_token) UNIQUE
 #
 

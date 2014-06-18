@@ -1,8 +1,7 @@
-<%= form_for([@family, @child], html: {class: "hidden"}) do |f| %>
+<form class="hidden edit-form" id="new-child" action="/families/<%= family.id %>/children">
   <% if @child.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@child.errors.count, "error") %> prohibited this child from being saved:</h2>
-
       <ul>
       <% @child.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,17 +10,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nickname %><br>
-    <%= f.text_field :nickname %>
+	<div class="child-photo-dummy"><a href="">Add/Edit Photo</a></div>
 
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
 
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+	<!-- <div>
+		<label for="facebook_username">facebook username</label></br>
+		<input type="text" name="facebook_username">
+
+		<div class="<%# obj_name %>-photo">Facebook Placeholder</div>
+
+		<div class="<%# obj_name %>-photo">PAPERCLIP_PLACEHOLDER 1 </div>
+	</div> -->
+
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="nickname">Nickname</label></br>
+  <input type="text" name="nickname">
+  <input type="submit">
+
+</form>
+
+<%= render partial: "persons/form", locals: {family: @family} %>

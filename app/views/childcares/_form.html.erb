@@ -1,0 +1,67 @@
+<% obj_name = 'childcare' %>
+<% obj_name_plural = 'childcares' %>
+<% @obj = @childcare %>
+
+
+<!-- form -->
+<form class="hidden" id="edit-<%=obj_name %>" action="/families/<%= family.id %>/children/<%= child.id %>/<%=obj_name_plural %>">
+	<!-- NOTE - THIS FORM HAS A DOUBLE NESTED URL -->
+
+	<!-- error checking (mostly from devise) -->
+	<!-- #FIX - this should be DRYed out -->
+	<!--  <%# if @obj.errors.any? %>
+	<div id="error_explanation">
+	  <h2><%#= pluralize(@obj.errors.count, "error") %> prohibited this <%# obj_name %> from being saved:</h2>
+	  <ul>
+		<%# @obj.errors.full_messages.each do |message| %>
+		  <li><%#= message %></li>
+		<%# end %>
+	  </ul>
+	</div>
+	<%# end %>
+	-->
+
+
+	<!-- Text Fields -->
+
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+		<label for="name"><%= obj_name %> name</label></br>
+			<input type="text" name="name">
+
+		<label for="description">description (optional)</label></br>
+			<input type="textarea" name="description">
+
+
+		<!-- Image URL? Or paperclip instance? need to re-think this once we see paperclip in action-->
+		<label for="image_url">image_url (optional)</label></br>
+			<input type="textarea" name="image_url">
+
+		<label for="PAPERCLIP_PLACEHOLDER"> PAPERCLIP_PLACEHOLDER</label></br>
+			<input type="text" name="PAPERCLIP_PLACEHOLDER">
+
+
+
+
+		<!-- These should use jQuery Time/Date selectors. 
+		Perhaps they should pass java time objs rather than strings.  
+		Database is looking to recieve datetime objects, but 
+		Rails/ActiveRecord will aggressively try to interpret strings...
+		-->
+		<label for="start_datetime">start_datetime</label></br>
+			<input type="text" name="start_datetime">
+
+		<label for="end_datetime">end_datetime</label></br>
+			<input type="text" name="end_datetime">
+
+
+	<!-- Button -->
+	<input type="submit">
+
+
+	<div> Caregiver headshots here. You can select from them to assign them to this event. You can also add/edit (just like on family#show).</div>
+
+</form>
+
+
+<%= render partial: "caregivers/form", locals: {family: @family} %>
